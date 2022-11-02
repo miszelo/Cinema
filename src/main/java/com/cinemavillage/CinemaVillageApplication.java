@@ -1,13 +1,13 @@
-package com.cinema.cinemavillage;
+package com.cinemavillage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CinemavillageApplication {
+public class CinemaVillageApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CinemavillageApplication.class, args);
+		SpringApplication.run(CinemaVillageApplication.class, args);
 	}
 
 }
