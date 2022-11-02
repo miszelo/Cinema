@@ -1,10 +1,10 @@
-package com.cinema.cinemavillage;
+package com.cinemavillage;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CinemavillageApplicationTests {
+class CinemaVillageApplicationTests {
 
 	@Test
 	void contextLoads() {
