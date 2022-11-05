@@ -8,7 +8,6 @@ public class CinemaVillageApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CinemaVillageApplication.class, args);
-		System.out.println("TEST");
 	}
 
 }
