@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="css/hallLayout.css">
+    <link rel="stylesheet" href="hallLay.css">
+
 </head>
 <body>
 <div class="section"><div class="screen"></div></div>
@@ -153,5 +154,14 @@
     </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+    alert(new Date());
+    $('.cinema-seats .seat').on('click', function() {
+        $(this).toggleClass('active');
+    });
+</script>
+
 </body>
 </html>
