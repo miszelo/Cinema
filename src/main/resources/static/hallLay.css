@@ -15,10 +15,9 @@ body {
 }
 .theatre {
     display: flex;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-content: center;
+    margin: 10vh 0 0 0;
 }
 .cinema-seats {
     display: flex;
@@ -148,4 +147,41 @@ body {
 }
 .right .row-7 .seat {
     transform: skew(-20deg);
+}
+.buttonSection {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+/*button style*/
+.reserveBtn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid rgb(255, 71, 114);
+    border-radius: 0.6em;
+    color: rgb(255, 139, 226);
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.reserveBtn:hover, .reserveBtn:focus {
+    color: rgba(138, 138, 138, 0.47);
+    outline: 0;
+}
+.effect {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.effect:hover {
+    box-shadow: 0 0 40px 40px #ff4772 inset;
 }
