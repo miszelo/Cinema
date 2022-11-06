@@ -159,12 +159,30 @@
 <div class="buttonSection">
     <button class="reserveBtn effect" id="getID">Zarezerwuj</button>
 </div>
+<div class="legend">
+    <div class="legend-seat">
+        <div class="cinema-col">
+            <div class="seat-test"></div>
+        </div>
+        <div class="cinema-col">
+            <div class="seat-test active-test"></div>
+        </div>
+        <div class="cinema-col">
+            <div class="seat-test taken-test"></div>
+        </div>
+    </div>
+</div>
+<div class="text-box">
+    <p class="text">WOLNE</p>
+    <p class="text">WYBRANE</p>
+    <p class="text">ZAJĘTE</p>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="application/javascript">
     $('.cinema-seats .seat').on('click', function () {
-        if (!$(this).hasClass('taken')){
+        if (!$(this).hasClass('taken') && $(this).attr('id') !== undefined){
             $(this).toggleClass('active');
         }
 
