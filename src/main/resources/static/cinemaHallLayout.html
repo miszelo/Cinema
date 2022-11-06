@@ -164,17 +164,23 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="application/javascript">
     $('.cinema-seats .seat').on('click', function () {
-        $(this).toggleClass('active');
+        if (!$(this).hasClass('taken')){
+            $(this).toggleClass('active');
+        }
+
     });
 </script>
 <script type="application/javascript">
     $('#getID').click(function () {
+
         var arr = $(".active").toArray();
         var newArr = [];
         $.each(arr, function (){
             newArr.push($(this).attr("id"))
         });
+        $(".active").addClass('taken');
         console.log(newArr);
+        $(".active").toggleClass('active');
     });
 </script>
 
