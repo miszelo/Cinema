@@ -7,7 +7,9 @@
 
 </head>
 <body>
-<div class="section"><div class="screen"></div></div>
+<div class="section">
+    <div class="screen"></div>
+</div>
 <div class="theatre">
     <div class="cinema-seats left">
         <div class="cinema-row row-1">
@@ -154,12 +156,24 @@
     </div>
 
 </div>
+<div class="buttonSection">
+    <button class="reserveBtn effect" id="getID">Zarezerwuj</button>
+</div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="application/javascript">
-    alert(new Date());
-    $('.cinema-seats .seat').on('click', function() {
+    $('.cinema-seats .seat').on('click', function () {
         $(this).toggleClass('active');
+    });
+</script>
+<script type="application/javascript">
+    $('#getID').click(function () {
+        var arr = $(".active").toArray();
+        var newArr = [];
+        $.each(arr, function (){
+            newArr.push($(this).attr("id"))
+        });console.log(newArr);
     });
 </script>
 
