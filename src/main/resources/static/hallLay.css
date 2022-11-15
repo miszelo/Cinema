@@ -9,9 +9,11 @@ body {
 }
 .screen {
     border-style: solid;
-    border-color: rgba(77, 37, 179, 1);
+    border-radius: 10px;
+    border-color: rgba(168, 0, 0, 0.65);
     width: 40vw;
     height: 40vh;
+    box-shadow: 0 0 5vh #9ecaed;
 }
 .theatre {
     display: flex;
@@ -24,6 +26,13 @@ body {
 }
 .cinema-seats .seat {
     cursor: pointer;
+}
+.legend {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: 1vh;
+
 }
 .active {}
 
@@ -42,7 +51,16 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(217, 130, 130, 0.6);
+    background: rgb(187, 150, 55);
+    border-radius: 7px;
+}
+.cinema-seats .seat.taken:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(72, 72, 72, 0.76);
     border-radius: 7px;
 }
 .left .cinema-row {
@@ -50,11 +68,11 @@ body {
     margin: 0 6px;
 }
 .left .seat {
-    width: 35px;
+    width: 40px;
     height: 50px;
     border-radius: 7px;
     background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #b54041, #f3686a);
-    margin-bottom: 10px;
+    margin-bottom:20px;
     transform: skew(20deg);
     margin-top: -32px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -64,6 +82,7 @@ body {
 }
 .left .row-2 .seat {
     transform: skew(18deg);
+    margin-left: 5px;
 }
 .left .row-3 {
     transform: skew(-12deg);
@@ -94,6 +113,7 @@ body {
 }
 .left .row-7 .seat {
     transform: skew(8deg);
+    margin-right:5px;
 }
 .right {
     margin-left: 70px;
@@ -103,11 +123,11 @@ body {
     margin: 0 6px;
 }
 .right .seat {
-    width: 35px;
+    width: 40px;
     height: 50px;
     border-radius: 7px;
     background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #b54041, #f3686a);
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     transform: skew(-8deg);
     margin-top: -32px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
@@ -147,6 +167,7 @@ body {
 }
 .right .row-7 .seat {
     transform: skew(-20deg);
+    margin-left:5px;
 }
 .buttonSection {
     display: flex;
@@ -159,9 +180,9 @@ body {
     box-sizing: border-box;
     appearance: none;
     background-color: transparent;
-    border: 2px solid rgb(255, 71, 114);
+    border: 2px solid rgb(77, 19, 38);
     border-radius: 0.6em;
-    color: rgb(255, 139, 226);
+    color: rgba(55, 134, 255, 0.47);
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -176,12 +197,74 @@ body {
     font-weight: 700;
 }
 .reserveBtn:hover, .reserveBtn:focus {
-    color: rgba(138, 138, 138, 0.47);
+    color: rgba(55, 255, 238, 0.47);
     outline: 0;
 }
 .effect {
     transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
 }
 .effect:hover {
-    box-shadow: 0 0 40px 40px #ff4772 inset;
+    box-shadow: 0 0 40px 40px #4d1326 inset;
+}
+.text {
+    color: #9ecaed;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-right: 1%;
+    margin-left: 1%;
+}
+.legend .rowx .seat-test {
+    display: flex;
+    transform: skew(0);
+    align-content: center;
+    justify-content: center;
+    margin-right:50px;
+}
+.legend-seat {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.legend-seat .seat-test {
+    cursor: pointer;
+}
+.seat-test {
+    display: flex;
+    width: 40px;
+    height: 50px;
+    border-radius: 7px;
+    background: linear-gradient(to top, #761818, #761818, #761818, #761818, #761818, #b54041, #f3686a);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.cinema-col {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.text-box {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+.seat-test.taken-test:before {
+    content: '';
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(72, 72, 72, 0.76);
+    border-radius: 7px;
+}
+.seat-test.active-test:before {
+    content: '';
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(187, 150, 55);
+    border-radius: 7px;
 }
