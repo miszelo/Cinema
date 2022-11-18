@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RegistrationController {
 
     private final RegistrationService registrationService;
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<NewUserDTO> register(@RequestBody NewUserDTO newUserDTO) {
         return registrationService.register(newUserDTO);
     }

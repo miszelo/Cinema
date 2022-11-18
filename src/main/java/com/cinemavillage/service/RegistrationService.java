@@ -1,8 +1,8 @@
 package com.cinemavillage.service;
 
 import com.cinemavillage.dto.NewUserDTO;
-import com.cinemavillage.exception.UserExistException;
-import com.cinemavillage.model.Role;
+import com.cinemavillage.exception.userException.UserExistException;
+import com.cinemavillage.model.user.Role;
 import com.cinemavillage.model.user.User;
 import com.cinemavillage.repository.UserRepository;
 import lombok.AllArgsConstructor;

@@ -1,5 +1,6 @@
 package com.cinemavillage.security.config;
 
+import com.cinemavillage.model.user.Role;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,8 +22,9 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests(auth -> {
                     auth.antMatchers("/register").permitAll();
+                    auth.antMatchers("/reserve").hasAuthority(Role.USER.name());
+                    auth.antMatchers("/movie/add").hasAuthority(Role.ADMIN.name());
                 })
-
                 .formLogin();
         return http.build();
     }
