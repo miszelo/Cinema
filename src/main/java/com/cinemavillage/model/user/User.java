@@ -1,5 +1,6 @@
-package com.cinemavillage.model;
+package com.cinemavillage.model.user;
 
+import com.cinemavillage.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class User {
 
     @Id
-    private Long userID;
+    private String userID;
 
     private String userEmail;
 

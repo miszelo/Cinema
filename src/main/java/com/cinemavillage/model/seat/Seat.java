@@ -1,4 +1,4 @@
-package com.cinemavillage.seat;
+package com.cinemavillage.model.seat;
 
 import lombok.Data;
 

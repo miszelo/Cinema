@@ -1,30 +1,32 @@
-package com.cinemavillage.security;
+package com.cinemavillage.security.config;
 
+import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@AllArgsConstructor
 @EnableWebSecurity
 public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http
-                .csrf(AbstractHttpConfigurer::disable)
-                .headers(HeadersConfigurer::frameOptions)
+        http
+                .csrf().disable()
+                .headers().frameOptions().disable()
+                .and()
                 .authorizeRequests(auth -> {
-                    auth.anyRequest().permitAll();
+                    auth.antMatchers("/register").permitAll();
                 })
-                .httpBasic(Customizer.withDefaults())
-                .build();
+
+                .formLogin();
+        return http.build();
     }
+
 
     @Bean
     public static BCryptPasswordEncoder passwordEncoder() {

@@ -1,10 +1,15 @@
 package com.cinemavillage.repository;
 
-import com.cinemavillage.model.User;
+import com.cinemavillage.model.user.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UserRepository extends MongoRepository<User, Long> {
+import java.util.Optional;
 
+@Repository
+public interface UserRepository extends MongoRepository<User, String> {
+
+    Optional<User> findByUserEmailIgnoreCase(String email);
+
+    boolean existsByUserEmail(String userEmail);
 }

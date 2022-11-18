@@ -1,9 +1,9 @@
-package com.cinemavillage.hall;
+package com.cinemavillage.model.hall;
 
-import com.cinemavillage.seat.Seat;
+import com.cinemavillage.model.seat.Seat;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
