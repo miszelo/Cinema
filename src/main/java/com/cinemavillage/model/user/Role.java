@@ -1,4 +1,4 @@
-package com.cinemavillage.model;
+package com.cinemavillage.model.user;
 
 public enum Role {
     USER,
