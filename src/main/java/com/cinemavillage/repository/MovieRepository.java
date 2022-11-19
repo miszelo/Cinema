@@ -6,8 +6,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public interface MovieRepository extends MongoRepository<Movie, LocalDateTime> {
+public interface MovieRepository extends MongoRepository<Movie, String> {
 
     Movie findMovieByDateOfScreening(LocalDateTime date);
     List<Movie> findMoviesByDateOfScreening(LocalDateTime date);
+    Movie findMovieById(String id);
 }
