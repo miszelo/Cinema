@@ -1,6 +1,7 @@
 package com.cinemavillage.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,6 +16,12 @@ public class IndexController {
     public ModelAndView homePage() {
         return new ModelAndView(HOME_PAGE);
     }
+//    @RequestMapping("/")
+//    public ModelAndView homePagedffd() {
+//        List<?> s  = hallRepository.getAll();
+//        ModelAndView modelAndView = new ModelAndView(HOME_PAGE);
+//        modelAndView.addObject(s);
+//    }
 
     @RequestMapping("/home")
     public ModelAndView homePageLogged() {
