@@ -8,6 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
+
 @Controller
 @AllArgsConstructor
 public class IndexController {
@@ -31,12 +35,10 @@ public class IndexController {
 
     @RequestMapping("/home")
     public ModelAndView homePageLogged() {
-        System.out.println("EEEEEEE");
         ModelAndView model = new ModelAndView(HOME_PAGE_LOGGED);
-        Movie movie = movieRepository.findMovieById("6378ae0fdc32216566ac95fd");
-        System.out.println(movie.toString());
-        model.addObject("movieTitle", movie.getTitle());
-        model.addObject("movieTime", movie.getDateOfScreening());
+        //findAll - for testing purpose only, should be found by date
+        List<Movie> movies = movieRepository.findAll();
+        model.addObject("movies", movies);
         return model;
     }
 

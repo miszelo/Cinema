@@ -7,9 +7,12 @@
 </head>
 <body>
 <button onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >cinema</button>
-<div class = "movieBox">
-    <p>${movieTitle}</p>
-    <p>${movieTime}</p>
-</div>
+<#list movies as m>
+    <div class = "movieBox">
+        <p>${m.title}<br>${m.dateOfScreening}</p>
+        <!--<p>${m.dateOfScreening}</p>-->
+    </div>
+</#list>
+
 </body>
 </html>
