@@ -7,19 +7,20 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class ReservationService {
-    private final MovieRepository movieRepository;
-    @GetMapping("/book")
-    public ModelAndView getMoviesByDate(LocalDate day) {
-        ModelAndView model = new ModelAndView();
-        movieRepository.findMoviesByDateOfScreening(day.atStartOfDay());
-        return model;
-    }
+
+//    @GetMapping("/book")
+//    public ModelAndView getMoviesByDate() {
+//        System.out.println("EEEEEEE");
+//        ModelAndView model = new ModelAndView();
+//        Movie movie = movieRepository.findMoviesById("6378ae0fdc32216566ac95fd");
+//        model.addObject("movies", movie);
+//        return model;
+//    }
 
 }
