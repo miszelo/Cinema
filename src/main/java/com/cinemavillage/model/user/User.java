@@ -1,6 +1,5 @@
 package com.cinemavillage.model.user;
 
-import com.cinemavillage.model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
