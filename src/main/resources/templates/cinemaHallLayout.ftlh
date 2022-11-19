@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="hallLay.css">
+    <link rel="stylesheet" href="../static/hallLay.css">
 
 </head>
 <body>
