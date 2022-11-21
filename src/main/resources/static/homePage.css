@@ -1,8 +1,18 @@
-.movieBox {
-    display: flex;
-    border: solid #4d1326;
+body {
+    background: #111111;
 }
-movieBox {
+.movieContainer {
     display: flex;
     border: solid #4d1326;
+    max-width: 30vw;
+    border-radius: 30px;
+}
+.movieBox {
+    align-content: center;
+    justify-content: center;
+    color: #5e829f;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding: 20px;
 }
