@@ -1,5 +1,6 @@
 package com.cinemavillage.model.hall;
 
+import com.cinemavillage.model.movie.Movie;
 import com.cinemavillage.model.seat.Seat;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -13,5 +14,5 @@ public class Hall {
     private Long id;
     private ArrayList<Seat> Seats;
     private LocalDateTime screeningTime;
-    private String movieName;
+    private Movie movie;
 }
