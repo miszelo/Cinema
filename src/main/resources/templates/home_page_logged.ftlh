@@ -10,7 +10,7 @@
 <#list movies as m>
     <div class = "movieContainer">
         <div class = "movieBox">
-            <p>${m.title}<br>${m.dateOfScreening}</p>
+            <p>${m.title}<br>${m.description}</p>
             <!--<p>${m.dateOfScreening}</p>-->
         </div>
     </div>
