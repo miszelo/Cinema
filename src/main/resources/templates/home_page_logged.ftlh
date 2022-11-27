@@ -13,6 +13,7 @@
     <input type="date" value="2022-11-27">
 </div>
 <br>
+<div class="listBox">
 <div class="movieList">
 <!--<button onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >cinema</button>-->
 <#list movies as m>
@@ -25,6 +26,7 @@
     </div>
     <br>
 </#list>
+</div>
 </div>
 </body>
 </html>

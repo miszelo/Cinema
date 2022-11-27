@@ -7,6 +7,11 @@ body {
     max-width: 30vw;
     border-radius: 30px;
 }
+.listBox {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
 .movieBox {
     align-content: center;
     justify-content: center;
@@ -63,6 +68,8 @@ body {
 }
 .movieList {
     padding-left: 3vw;
+    justify-content: center;
+    align-content: center;
 }
 .outTopNav {
     display: flex;
