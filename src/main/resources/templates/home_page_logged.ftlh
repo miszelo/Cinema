@@ -12,9 +12,8 @@
 
 <div class="topnav">
     <a class="active" href="http://localhost:8080/home">Home</a>
-    <a href="#news">News</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About</a>
+    <a href="#news">TESTESTEST</a>
+    <a href="#about">Log out</a>
 </div>
 
 <jsuites-calendar value=${today}></jsuites-calendar>
