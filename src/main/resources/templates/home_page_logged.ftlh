@@ -13,11 +13,11 @@
 <div class="topnav">
     <a class="active" href="http://localhost:8080/home">Home</a>
     <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >TESTESTEST</a>
-    <a href="#about">Log out</a>
+    <a href="#logout">Log out</a>
     <jsuites-calendar  id="calendar" value=${today}></jsuites-calendar>
 </div>
 <br>
-
+<div class="movieList">
 <!--<button onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >cinema</button>-->
 <#list movies as m>
     <div class = "movieContainer">
@@ -28,7 +28,7 @@
     </div>
     <br>
 </#list>
-
+</div>
 </body>
 <script>
     document.querySelector('jsuites-calendar').addEventListener('onchange', function(e) {

@@ -46,11 +46,14 @@ body {
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color: #ddd;
-    color: black;
+    color: rgba(0, 0, 0, 0.85);
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
     background-color: #982047;
     color: white;
+}
+.movieList {
+    padding-left: 3vw;
 }
