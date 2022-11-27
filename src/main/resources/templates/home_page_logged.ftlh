@@ -12,12 +12,13 @@
 
 <div class="topnav">
     <a class="active" href="http://localhost:8080/home">Home</a>
-    <a href="#news">TESTESTEST</a>
+    <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >TESTESTEST</a>
     <a href="#about">Log out</a>
+    <jsuites-calendar  id="calendar" value=${today}></jsuites-calendar>
 </div>
+<br>
 
-<jsuites-calendar value=${today}></jsuites-calendar>
-<button onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >cinema</button>
+<!--<button onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >cinema</button>-->
 <#list movies as m>
     <div class = "movieContainer">
         <div class = "movieBox">

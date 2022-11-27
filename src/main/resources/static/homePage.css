@@ -30,6 +30,7 @@ body {
     overflow: hidden;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
+    display: flex;
 }
 
 /* Style the links inside the navigation bar */
