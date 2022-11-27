@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -38,7 +39,6 @@ public class IndexController {
     @RequestMapping("/home")
     public String homePageLogged(Model model) {
 
-        //findAll - for testing purpose only, should be found by date
         List<Movie> movies = movieRepository.findAll();
         model.addAttribute("movies", movies);
         return HOME_PAGE_LOGGED;

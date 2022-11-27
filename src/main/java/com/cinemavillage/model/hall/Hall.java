@@ -13,7 +13,7 @@ import java.util.List;
 public class Hall {
     @Id
     private Long id;
-    private ArrayList<Seat> Seats;
+    private ArrayList<Seat> seatState;
     private LocalDateTime screeningTime;
     private Movie movie;
 
