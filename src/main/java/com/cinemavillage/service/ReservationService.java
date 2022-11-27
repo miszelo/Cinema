@@ -28,9 +28,7 @@ public class ReservationService {
     public List<Hall> getHallByDate(LocalDateTime start, LocalDateTime end) {
         return hallRepository.findHallsByScreeningTimeBetween(start, end);
     }
-//    public Hall getSeatStateByMovieAndScreeningTime(Movie movie, LocalDateTime screeningTime) {
-//        return hallRepository.findHallByMovieAndScreeningTime(movie, screeningTime);
-//    }
+
     public Movie getMovieById(ObjectId id){
         return movieRepository.findMoviesById();
     }

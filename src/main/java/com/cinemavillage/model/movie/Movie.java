@@ -22,18 +22,12 @@ public class Movie {
 
     int duration;
 
-    List<Hall> seatState;
-
-    LocalDateTime dateOfScreening;
-
     @Override
     public String toString() {
         return "Movie{" +
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", duration=" + duration +
-                ", seatState=" + seatState +
-                ", dateOfScreening=" + dateOfScreening +
                 '}';
     }
 }
