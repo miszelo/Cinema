@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Document
 public class Hall {
@@ -15,4 +16,5 @@ public class Hall {
     private ArrayList<Seat> Seats;
     private LocalDateTime screeningTime;
     private Movie movie;
+
 }

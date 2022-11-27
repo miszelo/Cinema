@@ -6,6 +6,7 @@ import com.cinemavillage.repository.HallRepository;
 import com.cinemavillage.repository.MovieRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -35,17 +36,16 @@ public class IndexController {
 //    }
 
     @RequestMapping("/home")
-    public ModelAndView homePageLogged() {
-        ModelAndView model = new ModelAndView(HOME_PAGE_LOGGED);
+    public String homePageLogged(Model model) {
+
         //findAll - for testing purpose only, should be found by date
         List<Movie> movies = movieRepository.findAll();
-        model.addObject("movies", movies);
-        return model;
+        model.addAttribute("movies", movies);
+        return HOME_PAGE_LOGGED;
     }
 
     @RequestMapping("/cinema")
-    public ModelAndView cinema() {
-        return new ModelAndView(CINEMA);
+    public String cinema() {
+        return CINEMA;
     }
-
 }

@@ -5,6 +5,7 @@ import com.cinemavillage.dto.NewUserDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,5 +23,10 @@ public class RegistrationController {
         httpServletResponse.setHeader("Location", "/home");
         httpServletResponse.setStatus(302);
         return registrationService.register(newUserDTO);
+    }
+
+    @GetMapping
+    public String register() {
+        return "register";
     }
 }
