@@ -26,11 +26,11 @@ body {
 }
 
 .topnav {
-    background: rgba(0, 0, 0, 0.85);
+    border: solid #9ecaed;
     overflow: hidden;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
-    display: flex;
+    justify-content: center;
 }
 
 /* Style the links inside the navigation bar */
@@ -41,12 +41,23 @@ body {
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    justify-content: center;
+    align-content: center;
+}
+.topnav jsuites-calendar {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    justify-content: center;
+    align-content: center;
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-    background-color: #ddd;
-    color: rgba(0, 0, 0, 0.85);
+    background-color: #4d1326;
 }
 
 /* Add a color to the active/current link */
@@ -56,4 +67,7 @@ body {
 }
 .movieList {
     padding-left: 3vw;
+}
+.outTopNav {
+    display: flex;
 }

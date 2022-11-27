@@ -9,12 +9,13 @@
     <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
 </head>
 <body>
-
+<div class=""outTopNav>
 <div class="topnav">
     <a class="active" href="http://localhost:8080/home">Home</a>
     <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >TESTESTEST</a>
     <a href="#logout">Log out</a>
     <jsuites-calendar  id="calendar" value=${today}></jsuites-calendar>
+</div>
 </div>
 <br>
 <div class="movieList">
