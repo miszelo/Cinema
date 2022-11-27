@@ -44,15 +44,11 @@ body {
     justify-content: center;
     align-content: center;
 }
-.topnav jsuites-calendar {
+.topnav input {
     float: left;
-    color: #f2f2f2;
+    color: #000000;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    justify-content: center;
-    align-content: center;
 }
 
 /* Change the color of links on hover */
@@ -70,4 +66,35 @@ body {
 }
 .outTopNav {
     display: flex;
+}
+
+.pickBtn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #000000;
+    border-radius: 0.6em;
+    color: #62bbff;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    line-height: 1;
+    margin: 10px;
+    padding: 0.8em 1.6em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+.pickBtn:hover, .pickBtn:focus {
+    color: rgba(55, 255, 238, 0.47);
+    outline: 0;
+}
+.effect {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.effect:hover {
+    box-shadow: 0 0 40px 40px #4d1326 inset;
 }

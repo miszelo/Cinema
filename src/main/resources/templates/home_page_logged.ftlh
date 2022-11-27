@@ -4,18 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="../static/homePage.css">
-    <script src="https://jsuites.net/v4/jsuites.js"></script>
-    <script src="https://jsuites.net/v4/jsuites.webcomponents.js"></script>
-    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
 </head>
 <body>
-<div class=""outTopNav>
 <div class="topnav">
     <a class="active" href="http://localhost:8080/home">Home</a>
     <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >TESTESTEST</a>
     <a href="#logout">Log out</a>
-    <jsuites-calendar  id="calendar" value=${today}></jsuites-calendar>
-</div>
+    <input type="date" value="2022-11-27">
 </div>
 <br>
 <div class="movieList">
@@ -26,17 +21,10 @@
             <p class="title"><b>${m.title}</b></p>
             <p class="description"><i>${m.description}</i></p>
         </div>
+        <button class="pickBtn effect" id="pickMovie">Wybierz</button>
     </div>
     <br>
 </#list>
 </div>
 </body>
-<script>
-    document.querySelector('jsuites-calendar').addEventListener('onchange', function(e) {
-        console.log('New value: ' + e.target.value);
-    });
-    document.querySelector('jsuites-calendar').addEventListener('onclose', function(e) {
-        console.log('Calendar is closed');
-    });
-</script>
 </html>
