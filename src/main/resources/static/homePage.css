@@ -1,5 +1,5 @@
 body {
-    background: #111111;
+    background: rgba(0, 0, 0, 0.85);
 }
 .movieContainer {
     display: flex;
@@ -23,4 +23,33 @@ body {
 .description {
     font-size: 1rem;
     color: #b4d9ff;
+}
+
+.topnav {
+    background: rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #982047;
+    color: white;
 }

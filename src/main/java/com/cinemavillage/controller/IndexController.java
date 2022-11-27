@@ -10,6 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +44,7 @@ public class IndexController {
 
         List<Movie> movies = movieRepository.findAll();
         model.addAttribute("movies", movies);
+        model.addAttribute("today", LocalDateTime.now().truncatedTo(ChronoUnit.DAYS));
         return HOME_PAGE_LOGGED;
     }
 
