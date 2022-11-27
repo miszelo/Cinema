@@ -1,0 +1,25 @@
+body {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.input {
+    width: 30vw;
+    flex-direction: column;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input>* {
+    margin-bottom: .5em;
+}
+
+
+.text {
+    margin-bottom: 10px;
+}

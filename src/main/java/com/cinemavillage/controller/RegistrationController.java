@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletResponse;
+
 @Controller
 @RequestMapping("/register")
 @RequiredArgsConstructor
@@ -16,7 +18,9 @@ public class RegistrationController {
 
     private final RegistrationService registrationService;
     @PostMapping
-    public ResponseEntity<NewUserDTO> register(@RequestBody NewUserDTO newUserDTO) {
+    public ResponseEntity<NewUserDTO> register(@RequestBody NewUserDTO newUserDTO, HttpServletResponse httpServletResponse) {
+        httpServletResponse.setHeader("Location", "/home");
+        httpServletResponse.setStatus(302);
         return registrationService.register(newUserDTO);
     }
 }
