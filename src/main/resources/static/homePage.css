@@ -3,16 +3,24 @@ body {
 }
 .movieContainer {
     display: flex;
-    border: solid #4d1326;
+    border: solid #982047;
     max-width: 30vw;
     border-radius: 30px;
 }
 .movieBox {
     align-content: center;
     justify-content: center;
-    color: #5e829f;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     padding: 20px;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: #62bbff;
+}
+.description {
+    font-size: 1rem;
+    color: #b4d9ff;
 }
