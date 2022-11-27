@@ -22,12 +22,7 @@ public class Movie {
 
     int duration;
 
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", duration=" + duration +
-                '}';
-    }
+    String description;
+
+
 }
