@@ -14,13 +14,4 @@ import java.util.List;
 @AllArgsConstructor
 public class ReservationService {
 
-//    @GetMapping("/book")
-//    public ModelAndView getMoviesByDate() {
-//        System.out.println("EEEEEEE");
-//        ModelAndView model = new ModelAndView();
-//        Movie movie = movieRepository.findMoviesById("6378ae0fdc32216566ac95fd");
-//        model.addObject("movies", movie);
-//        return model;
-//    }
-
 }
