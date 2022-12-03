@@ -19,13 +19,13 @@ public class RegistrationService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public ResponseEntity<NewUserDTO> register(NewUserDTO newUserDTO) {
-        if (userRepository.existsByUserEmail(newUserDTO.getUserEmail())) {
+        if (userRepository.existsByEmail(newUserDTO.getUserEmail())) {
             throw new UserExistException();
         }
 
         User newUser = User.builder()
-                .userEmail(newUserDTO.getUserEmail())
-                .userPassword(bCryptPasswordEncoder.encode(newUserDTO.getUserPassword()))
+                .email(newUserDTO.getUserEmail())
+                .password(bCryptPasswordEncoder.encode(newUserDTO.getUserPassword()))
                 .role(Role.USER)
                 .build();
         userRepository.save(newUser);

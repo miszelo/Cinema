@@ -6,10 +6,27 @@
     <link rel="stylesheet" href="../static/homePage.css">
 </head>
 <body>
-<button onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >cinema</button>
-<div class = "movieBox">
-    <p>${movieTitle}</p>
-    <p>${movieTime}</p>
+<div class="topnav">
+    <a class="active" href="http://localhost:8080/home">Home</a>
+    <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >TESTESTEST</a>
+    <a href="#logout">Log out</a>
+    <input type="date" value="2022-11-27">
+</div>
+<br>
+<div class="listBox">
+<div class="movieList">
+<!--<button onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >cinema</button>-->
+<#list movies as m>
+    <div class = "movieContainer">
+        <div class = "movieBox">
+            <p class="title"><b>${m.title}</b></p>
+            <p class="description"><i>${m.description}</i></p>
+        </div>
+        <button class="pickBtn effect" id="pickMovie">Wybierz</button>
+    </div>
+    <br>
+</#list>
+</div>
 </div>
 </body>
 </html>
