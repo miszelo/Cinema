@@ -1,6 +1,5 @@
 package com.cinemavillage.controller;
 
-import com.cinemavillage.model.hall.Hall;
 import com.cinemavillage.service.ReservationService;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 
 @Controller
 @AllArgsConstructor
@@ -21,9 +18,6 @@ import java.time.temporal.ChronoUnit;
 public class ReservationController {
 
     private final ReservationService reservationService;
-
-
-
 
     @GetMapping("/screening/{movieId}/{date}")
         public String getHallView(Model model, @PathVariable LocalDateTime date, @PathVariable ObjectId movieId, HttpServletRequest request) {

@@ -20,7 +20,7 @@
         event.preventDefault()
         const userEmail = document.getElementById('userEmail').value
         const userPassword = document.getElementById('userPassword').value
-        const result = await fetch('/register', {
+        await fetch('/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,14 +31,11 @@
             })
         }).then(res => {
             if (res.status === 200) {
-                alert('success');
-                console.log(res)
+                alert('Success');
                 window.location.href = 'http://localhost:8080/login';
             } else {
-                alert("zle")
-                console.log(res)
+                alert("Ups... Something gone wrong. Please try again.")
             }
-
         })
     })
 </script>
