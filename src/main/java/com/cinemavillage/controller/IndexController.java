@@ -32,12 +32,6 @@ public class IndexController {
     public ModelAndView homePage() {
         return new ModelAndView(HOME_PAGE);
     }
-//    @RequestMapping("/")
-//    public ModelAndView homePagedffd() {
-//        List<?> s  = hallRepository.getAll();
-//        ModelAndView modelAndView = new ModelAndView(HOME_PAGE);
-//        modelAndView.addObject(s);
-//    }
 
     @RequestMapping("/home")
     public String homePageLogged(Model model) {
