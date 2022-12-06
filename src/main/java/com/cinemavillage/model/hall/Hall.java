@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 @Document
 public class Hall {
+
     @Id
     @Field(name = "hallID")
     private Long id;
