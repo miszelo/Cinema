@@ -8,9 +8,9 @@
 <body>
 <div class="topnav">
     <a class="active" href="http://localhost:8080/home">Home</a>
-    <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >TESTESTEST</a>
+    <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >Cinema</a>
     <a href="http://localhost:8080/logout">Log out</a>
-    <input type="date" value="2022-11-27">
+    <input type="date" value="siema">
 </div>
 <br>
 <div class="listBox">
