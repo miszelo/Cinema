@@ -1,7 +1,6 @@
 package com.cinemavillage.controller;
 
-import com.cinemavillage.model.hall.Hall;
-import com.cinemavillage.model.movie.Movie;
+import com.cinemavillage.model.Movie;
 import com.cinemavillage.repository.HallRepository;
 import com.cinemavillage.repository.MovieRepository;
 import lombok.AllArgsConstructor;
@@ -10,10 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller

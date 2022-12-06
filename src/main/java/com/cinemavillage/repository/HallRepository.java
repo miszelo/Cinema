@@ -1,14 +1,11 @@
 package com.cinemavillage.repository;
 
-import com.cinemavillage.model.hall.Hall;
-import com.cinemavillage.model.movie.Movie;
-import com.cinemavillage.model.seat.Seat;
-import org.springframework.cglib.core.Local;
+import com.cinemavillage.model.Hall;
+import com.cinemavillage.model.Movie;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 
 public interface HallRepository extends MongoRepository<Hall, String> {

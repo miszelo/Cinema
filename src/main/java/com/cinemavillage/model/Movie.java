@@ -1,4 +1,4 @@
-package com.cinemavillage.model.movie;
+package com.cinemavillage.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

@@ -1,15 +1,13 @@
 package com.cinemavillage.service;
 
-import com.cinemavillage.model.hall.Hall;
-import com.cinemavillage.model.movie.Movie;
-import com.cinemavillage.model.seat.Seat;
+import com.cinemavillage.model.Hall;
+import com.cinemavillage.model.Movie;
 import com.cinemavillage.repository.HallRepository;
 import com.cinemavillage.repository.MovieRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
