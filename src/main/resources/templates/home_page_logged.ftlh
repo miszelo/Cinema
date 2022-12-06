@@ -19,8 +19,8 @@
 <#list movies as m>
     <div class = "movieContainer">
         <div class = "movieBox">
-            <p class="title"><b>${m.movieTitle}</b></p>
-            <p class="description"><i>${m.movieDescription}</i></p>
+            <p class="title"><b>${m.title}</b></p>
+            <p class="description"><i>${m.description}</i></p>
         </div>
         <button class="pickBtn effect" id="pickMovie">Wybierz</button>
     </div>
