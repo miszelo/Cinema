@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 public class ReservationService {
 
-
     private final HallRepository hallRepository;
     private final MovieRepository movieRepository;
 
