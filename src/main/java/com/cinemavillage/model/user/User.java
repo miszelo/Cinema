@@ -1,6 +1,6 @@
 package com.cinemavillage.model.user;
 
-import com.cinemavillage.model.ticket.Ticket;
+import com.cinemavillage.model.Ticket;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

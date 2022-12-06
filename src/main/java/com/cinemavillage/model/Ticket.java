@@ -1,7 +1,7 @@
-package com.cinemavillage.model.ticket;
+package com.cinemavillage.model;
 
-import com.cinemavillage.model.hall.Hall;
-import com.cinemavillage.model.movie.Movie;
+import com.cinemavillage.model.Hall;
+import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

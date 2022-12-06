@@ -1,5 +1,6 @@
-package com.cinemavillage.model.user;
+package com.cinemavillage.security.config;
 
+import com.cinemavillage.model.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
