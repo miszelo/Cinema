@@ -25,4 +25,6 @@ public class ReservationController {
         model.addAttribute("seatState", reservationService.getHallByMovieDate(reservationService.getMovieById(movieId),date));
         return "cinemaHallLayout";
     }
+    //TODO
+    // FIND GODZINA BY DZIEN I FILMTYTUŁ MA ZWRACAĆ  ArrayList<LocalTime>
 }
