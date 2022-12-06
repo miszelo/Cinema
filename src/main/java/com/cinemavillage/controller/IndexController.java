@@ -4,6 +4,7 @@ import com.cinemavillage.model.Movie;
 import com.cinemavillage.repository.HallRepository;
 import com.cinemavillage.repository.MovieRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,8 +39,10 @@ public class IndexController {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         if (date.isPresent()) {
             LocalDate localDate = LocalDate.parse(date.get() ,formatter);
+            model.addAttribute("date", localDate);
         } else {
             LocalDate localDate = LocalDate.now();
+            model.addAttribute("date", localDate);
         }
         List<Movie> movies = movieRepository.findAll();
         model.addAttribute("movies", movies);
