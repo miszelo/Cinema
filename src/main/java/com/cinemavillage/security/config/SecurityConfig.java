@@ -22,6 +22,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests(auth -> {
                     auth.antMatchers("/register").permitAll();
+                    auth.antMatchers("/home").hasAuthority(Role.USER.name());
                     auth.antMatchers("/book").hasAuthority(Role.USER.name());
                     auth.antMatchers("/movie/add").hasAuthority(Role.ADMIN.name());
                 })
