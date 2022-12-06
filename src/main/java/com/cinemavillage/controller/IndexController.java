@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -43,9 +45,9 @@ public class IndexController {
 
     @RequestMapping("/home/{date}")
     public String homePageLogged(Model model, @PathVariable Optional<String> date) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         if (date.isPresent()) {
-            LocalDate localDate = LocalDate.parse(date.toString() ,formatter);
+            LocalDate localDate = LocalDate.parse(date.get() ,formatter);
         } else {
             LocalDate localDate = LocalDate.now();
         }
