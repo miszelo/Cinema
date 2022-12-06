@@ -21,6 +21,7 @@
         <div class = "movieBox">
             <p class="title"><b>${m.title}</b></p>
             <p class="description"><i>${m.description}</i></p>
+            <!-- Klikniecie w button musi brać movieTitle oraz date z gory by na ich podstawie zwracać godziny seansów-->
         </div>
         <button class="pickBtn effect" id="pickMovie">Wybierz</button>
     </div>
