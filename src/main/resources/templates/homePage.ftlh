@@ -10,7 +10,7 @@
     <a class="active" href="http://localhost:8080/home">Home</a>
     <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >TESTESTEST</a>
     <a href="http://localhost:8080/logout">Log out</a>
-    <input type="date" value=${date}>
+    <input type="date" id="date" value=${date}>
 </div>
 <br>
 <div class="listBox">

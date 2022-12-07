@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -27,6 +28,9 @@ public class ReservationService {
     }
 
     public Movie getMovieById(ObjectId id){
-        return movieRepository.findMoviesById();
+        return movieRepository.findMoviesById(id);
+    }
+    public Movie getMovieByTitle(String title) {
+        return movieRepository.findMovieByTitle(title);
     }
 }

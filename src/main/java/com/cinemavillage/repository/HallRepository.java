@@ -4,6 +4,7 @@ import com.cinemavillage.model.Hall;
 import com.cinemavillage.model.Movie;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
