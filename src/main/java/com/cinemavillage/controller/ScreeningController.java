@@ -1,14 +1,14 @@
 package com.cinemavillage.controller;
 
-import com.cinemavillage.model.Hall;
+import com.cinemavillage.model.Screening;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping
-public class HallController {
+public class ScreeningController {
 
     @GetMapping
-    public Hall getHall() {
+    public Screening getHall() {
 
         return null;
     }

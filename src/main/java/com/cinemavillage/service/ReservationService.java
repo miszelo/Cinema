@@ -1,8 +1,8 @@
 package com.cinemavillage.service;
 
-import com.cinemavillage.model.Hall;
+import com.cinemavillage.model.Screening;
 import com.cinemavillage.model.Movie;
-import com.cinemavillage.repository.HallRepository;
+import com.cinemavillage.repository.ScreeningRepository;
 import com.cinemavillage.repository.MovieRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
@@ -15,18 +15,21 @@ import java.util.List;
 @AllArgsConstructor
 public class ReservationService {
 
-    private final HallRepository hallRepository;
+    private final ScreeningRepository screeningRepository;
     private final MovieRepository movieRepository;
 
-    public Hall getHallByMovieDate(Movie movie, LocalDateTime screeningTime) {
-        return hallRepository.findHallByMovieAndScreeningTime(movie, screeningTime);
+    public Screening getScreeningByMovieDate(Movie movie, LocalDateTime screeningTime) {
+        return screeningRepository.findScreeningByMovieAndScreeningTime(movie, screeningTime);
     }
 
-    public List<Hall> getHallByDate(LocalDateTime start, LocalDateTime end) {
-        return hallRepository.findHallsByScreeningTimeBetween(start, end);
+    public List<Screening> getHallByDate(LocalDateTime start, LocalDateTime end) {
+        return screeningRepository.findScreeningsByScreeningTimeBetween(start, end);
     }
 
     public Movie getMovieById(ObjectId id){
-        return movieRepository.findMoviesById();
+        return movieRepository.findMoviesById(id);
+    }
+    public Movie getMovieByTitle(String title) {
+        return movieRepository.findMovieByTitle(title);
     }
 }

@@ -24,6 +24,6 @@ public class Ticket {
     @Field(name = "ticketMovie")
     private Movie movie;
 
-    @Field(name = "ticketHall")
-    private Hall hall;
+    @Field(name = "ticketScreening")
+    private Screening screening;
 }

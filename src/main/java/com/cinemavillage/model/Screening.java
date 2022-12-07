@@ -8,13 +8,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Document
-public class Hall {
+public class Screening {
 
     @Id
-    @Field(name = "hallID")
+    @Field(name = "screeningID")
     private Long id;
 
-    @Field(name = "hallSeatState")
+    @Field(name = "screeningSeatState")
     private List<Seat> seatState;
 
     @Field(name = "hallScreeningTime")
