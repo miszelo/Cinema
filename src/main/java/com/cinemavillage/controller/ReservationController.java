@@ -22,16 +22,16 @@ public class ReservationController {
     private final ReservationService reservationService;
 
     @GetMapping("/screening/{movieId}/{date}")
-        public String getHallView(Model model, @PathVariable LocalDateTime date, @PathVariable String movieTitle, HttpServletRequest request) {
+        public String getHallView(Model model, @PathVariable LocalDateTime date, @PathVariable ObjectId movieId, HttpServletRequest request) {
             //model.addAttribute("hall",reservationService.getHallByDate(LocalDateTime.of(date.toLocalDate(), LocalTime.MIDNIGHT), LocalDateTime.of(date.toLocalDate().plusDays(1),LocalTime.MIDNIGHT)));
-        model.addAttribute("seatState", reservationService.getScreeningByMovieDate(reservationService.getMovieByTitle(movieTitle),date));
+        model.addAttribute("seatState", reservationService.getScreeningByMovieDate(reservationService.getMovieById(movieId),date));
         return "cinemaHallLayout";
     }
 
     @PostMapping
     public void reserve(@AuthenticationPrincipal UserDetailsImpl userDetails,
                         @RequestBody ReservationDTO reservationDTO) {
-
+        reservationService.reserve(userDetails, reservationDTO);
     }
     //TODO
     // FIND GODZINA BY DZIEN I FILMTYTUŁ MA ZWRACAĆ  ArrayList<LocalTime>
