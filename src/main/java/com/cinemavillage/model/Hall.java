@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.List;
 
 @Document
 public class Hall {
@@ -15,7 +15,7 @@ public class Hall {
     private Long id;
 
     @Field(name = "hallSeatState")
-    private ArrayList<Seat> seatState;
+    private List<Seat> seatState;
 
     @Field(name = "hallScreeningTime")
     private LocalDateTime screeningTime;
