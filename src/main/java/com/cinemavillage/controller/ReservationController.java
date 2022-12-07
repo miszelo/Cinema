@@ -24,7 +24,7 @@ public class ReservationController {
     @GetMapping("/screening/{movieId}/{date}")
         public String getHallView(Model model, @PathVariable LocalDateTime date, @PathVariable String movieTitle, HttpServletRequest request) {
             //model.addAttribute("hall",reservationService.getHallByDate(LocalDateTime.of(date.toLocalDate(), LocalTime.MIDNIGHT), LocalDateTime.of(date.toLocalDate().plusDays(1),LocalTime.MIDNIGHT)));
-        model.addAttribute("seatState", reservationService.getHallByMovieDate(reservationService.getMovieByTitle(movieTitle),date));
+        model.addAttribute("seatState", reservationService.getScreeningByMovieDate(reservationService.getMovieByTitle(movieTitle),date));
         return "cinemaHallLayout";
     }
 

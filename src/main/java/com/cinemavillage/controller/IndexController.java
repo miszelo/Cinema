@@ -1,22 +1,21 @@
 package com.cinemavillage.controller;
 
+import com.cinemavillage.model.Screening;
 import com.cinemavillage.model.Movie;
-import com.cinemavillage.repository.HallRepository;
+import com.cinemavillage.repository.ScreeningRepository;
 import com.cinemavillage.repository.MovieRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -25,7 +24,7 @@ public class IndexController {
     private final static String HOME_PAGE = "homePage";
     private final static String CINEMA = "cinemaHallLayout";
 
-    private final HallRepository hallRepository;
+    private final ScreeningRepository screeningRepository;
 
     private final MovieRepository movieRepository;
 
@@ -40,10 +39,15 @@ public class IndexController {
         if (date.isPresent()) {
             LocalDate localDate = LocalDate.parse(date.get() ,formatter);
             model.addAttribute("date", localDate);
+            List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
+            model.addAttribute("screenings",testSeanse);
         } else {
             LocalDate localDate = LocalDate.now();
             model.addAttribute("date", localDate);
+            List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
+            model.addAttribute("screenings",testSeanse);
         }
+
         List<Movie> movies = movieRepository.findAll();
         model.addAttribute("movies", movies);
         model.addAttribute("today", LocalDateTime.now().truncatedTo(ChronoUnit.DAYS));

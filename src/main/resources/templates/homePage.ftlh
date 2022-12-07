@@ -29,5 +29,11 @@
 </#list>
 </div>
 </div>
+<#list screenings as scr>
+    <div>
+        <p>${scr.screeningTime}</p>
+        <p>${scr.movie.title}</p>
+    </div>
+</#list>
 </body>
 </html>

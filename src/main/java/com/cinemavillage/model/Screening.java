@@ -8,19 +8,19 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 @Document
-public class Hall {
+public class Screening {
 
     @Id
-    @Field(name = "hallID")
+    @Field(name = "screeningID")
     private Long id;
 
-    @Field(name = "hallSeatState")
+    @Field(name = "screeningSeatState")
     private ArrayList<Seat> seatState;
 
-    @Field(name = "hallScreeningTime")
+    @Field(name = "screeningTime")
     private LocalDateTime screeningTime;
 
-    @Field(name = "hallMovieName")
+    @Field(name = "screeningMovieName")
     private Movie movie;
 
 }
