@@ -21,7 +21,10 @@ public class SecurityConfig {
                 .headers().frameOptions().disable()
                 .and()
                 .authorizeRequests(auth -> {
+                    auth.antMatchers("/").hasAuthority(Role.USER.name());
                     auth.antMatchers("/register").permitAll();
+                    //auth.antMatchers("/home").hasAuthority(Role.USER.name());
+                    //auth.antMatchers("/home/**").hasAuthority(Role.USER.name());
                     auth.antMatchers("/book").hasAuthority(Role.USER.name());
                     auth.antMatchers("/movie/add").hasAuthority(Role.ADMIN.name());
                 })

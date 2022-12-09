@@ -1,5 +1,6 @@
-package com.cinemavillage.model.user;
+package com.cinemavillage.security.config;
 
+import com.cinemavillage.model.user.User;
 import com.cinemavillage.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

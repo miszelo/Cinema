@@ -1,15 +1,20 @@
 package com.cinemavillage.service;
 
-import com.cinemavillage.model.hall.Hall;
-import com.cinemavillage.model.movie.Movie;
-import com.cinemavillage.model.seat.Seat;
-import com.cinemavillage.repository.HallRepository;
+import com.cinemavillage.dto.ReservationDTO;
+import com.cinemavillage.exception.userException.UserNotFoundException;
+import com.cinemavillage.model.Movie;
+import com.cinemavillage.model.Screening;
+import com.cinemavillage.model.Ticket;
+import com.cinemavillage.model.user.User;
 import com.cinemavillage.repository.MovieRepository;
+import com.cinemavillage.repository.ScreeningRepository;
+import com.cinemavillage.repository.TicketRepository;
+import com.cinemavillage.repository.UserRepository;
+import com.cinemavillage.security.config.UserDetailsImpl;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -17,18 +22,37 @@ import java.util.List;
 @AllArgsConstructor
 public class ReservationService {
 
-    private final HallRepository hallRepository;
+    private final ScreeningRepository screeningRepository;
     private final MovieRepository movieRepository;
+    private final TicketRepository ticketRepository;
+    private final UserRepository userRepository;
 
-    public Hall getHallByMovieDate(Movie movie, LocalDateTime screeningTime) {
-        return hallRepository.findHallByMovieAndScreeningTime(movie, screeningTime);
+    public Screening getScreeningByMovieDate(Movie movie, LocalDateTime screeningTime) {
+        return screeningRepository.findScreeningByMovieAndScreeningTime(movie, screeningTime);
     }
 
-    public List<Hall> getHallByDate(LocalDateTime start, LocalDateTime end) {
-        return hallRepository.findHallsByScreeningTimeBetween(start, end);
+    public List<Screening> getHallByDate(LocalDateTime start, LocalDateTime end) {
+        return screeningRepository.findScreeningsByScreeningTimeBetween(start, end);
     }
 
-    public Movie getMovieById(ObjectId id){
-        return movieRepository.findMoviesById();
+    public Movie getMovieById(ObjectId id) {
+        return movieRepository.findMoviesById(id);
+    }
+
+    public void reserve(UserDetailsImpl userDetails, ReservationDTO reservationDTO) {
+        User user = userRepository.findByEmailIgnoreCase(userDetails.getUsername())
+                .orElseThrow(UserNotFoundException::new);
+        Ticket ticket = Ticket.builder()
+                .user(user)
+                .movie(movieRepository.findMovieByTitle(reservationDTO.getMovieTitle()))
+                .build();
+        user.getTickets().add(ticket);
+        userRepository.save(user);
+        ticketRepository.save(ticket);
+
+        //TODO update hall seats
+        //TODO reservationDTO
+        //TODO ticket
+
     }
 }

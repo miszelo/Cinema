@@ -9,8 +9,8 @@
 <div class="topnav">
     <a class="active" href="http://localhost:8080/home">Home</a>
     <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >TESTESTEST</a>
-    <a href="#logout">Log out</a>
-    <input type="date" value="2022-11-27">
+    <a href="http://localhost:8080/logout">Log out</a>
+    <input type="date" id="date" value=${date}>
 </div>
 <br>
 <div class="listBox">
@@ -21,6 +21,7 @@
         <div class = "movieBox">
             <p class="title"><b>${m.title}</b></p>
             <p class="description"><i>${m.description}</i></p>
+            <!-- Klikniecie w button musi brać movieTitle oraz date z gory by na ich podstawie zwracać godziny seansów-->
         </div>
         <button class="pickBtn effect" id="pickMovie">Wybierz</button>
     </div>
@@ -28,5 +29,11 @@
 </#list>
 </div>
 </div>
+<#list screenings as scr>
+    <div>
+        <p>${scr.screeningTime}</p>
+        <p>${scr.movie.title}</p>
+    </div>
+</#list>
 </body>
 </html>
