@@ -25,12 +25,14 @@ public class ScreeningController {
         return null;
     }
 
-    //looking for a convenient way to add screenings, currently not working :(
-    @PostMapping("/add")
-    public HttpStatus addScreening(){
+    //looking for a convenient way to add screenings, working, need some tweaks
+    @GetMapping("/add")
+    public String addScreening(){
+        System.out.println("Aaaaaa");
         Screening screening = new Screening(0L, LocalDateTime.of(2022,12,13,12,0), movieRepository.findMovieByTitle("HARRY POTTER I KAMIEŃ FILOZOFICZNY"));
+        System.out.println(screening.toString());
         screeningRepository.save(screening);
-        return HttpStatus.OK;
+        return "homePage";
     }
 
 }
