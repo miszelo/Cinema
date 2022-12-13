@@ -5,13 +5,12 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document
-@Data
+@Document(collection = "movie")
 public class Movie {
 
     @Id
     @Field("movieID")
-    String id;
+    Long id;
 
     @Field("movieTitle")
     String title;
@@ -21,5 +20,12 @@ public class Movie {
 
     @Field("movieDescription")
     String description;
+
+    Movie(Long id, String title, int duration, String description) {
+        this.id = id;
+        this.title = title;
+        this.duration = duration;
+        this.description = description;
+    }
 
 }

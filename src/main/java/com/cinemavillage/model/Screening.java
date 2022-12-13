@@ -24,7 +24,7 @@ public class Screening {
     @Field(name = "screeningMovieName")
     private Movie movie;
 
-    Screening(Long id, List<Seat> seatState, LocalDateTime screeningTime, Movie movie) {
+    public Screening(Long id, List<Seat> seatState, LocalDateTime screeningTime, Movie movie) {
         this.id = id;
         this.seatState = seatState;
         this.screeningTime = screeningTime;
