@@ -40,8 +40,11 @@ public class Screening {
         this.screeningTime = screeningTime;
         this.movie = movie;
         this.seatState = new ArrayList<Seat>();
-        for (int row = 1; row < 15; row++) {
-            for (int column = 1; column < 8; column++) {
+        setNewSeatState();
+    }
+    private void setNewSeatState() {
+        for (int row = 1; row < 8; row++) {
+            for (int column = 1; column < 15; column++) {
                 this.seatState.add(new Seat(row, column, false));
             }
         }
