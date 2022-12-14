@@ -28,12 +28,7 @@ public class IndexController {
 
     private final MovieRepository movieRepository;
 
-    @RequestMapping("/")
-    public String homePage() {
-        return HOME_PAGE;
-    }
-
-    @RequestMapping(value={"/home/{date}","/home"})
+    @RequestMapping(value={"/home/{date}","/home","/"})
     public String homePage(Model model, @PathVariable Optional<String> date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         if (date.isPresent()) {
