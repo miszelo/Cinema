@@ -21,7 +21,7 @@ public class SecurityConfig {
                 .headers().frameOptions().disable()
                 .and()
                 .authorizeRequests(auth -> {
-                    auth.antMatchers("/").hasAuthority(Role.USER.name());
+                    //auth.antMatchers("/").hasAuthority(Role.USER.name());
                     auth.antMatchers("/register").permitAll();
                     //auth.antMatchers("/home").hasAuthority(Role.USER.name());
                     //auth.antMatchers("/home/**").hasAuthority(Role.USER.name());
