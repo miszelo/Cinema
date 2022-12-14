@@ -14,21 +14,15 @@ import java.time.LocalDateTime;
 
 @Controller
 @AllArgsConstructor
-public class ScreeningController {
+public class MovieController {
     private final MovieRepository movieRepository;
     private final ScreeningRepository screeningRepository;
 
-    @GetMapping
-    public Screening getHall() {
-
-        return null;
-    }
-    //currently not working
-    @PutMapping("/screening/add")
-    public ResponseEntity<?> addScreening(@RequestBody Screening screening){
-        //Screening newScreening = new Screening();
-        //screeningRepository.save(newScreening);
-        return new ResponseEntity<>("Screening added.",HttpStatus.OK);
+    @PutMapping("/movie/add")
+    public ResponseEntity<?> addMovie(@RequestBody Movie movie) {
+        Movie newMovie = new Movie(movie.getTitle(),movie.getDuration(), movie.getDescription());
+        movieRepository.save(newMovie);
+        return new ResponseEntity<>("Movie added", HttpStatus.OK);
     }
 
 }

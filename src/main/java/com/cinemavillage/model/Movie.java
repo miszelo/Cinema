@@ -1,16 +1,19 @@
 package com.cinemavillage.model;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
+@Data
 @Document(collection = "movie")
 public class Movie {
 
     @Id
     @Field("movieID")
-    Long id;
+    String id;
 
     @Field("movieTitle")
     String title;
@@ -21,11 +24,9 @@ public class Movie {
     @Field("movieDescription")
     String description;
 
-    Movie(Long id, String title, int duration, String description) {
-        this.id = id;
+    public Movie(String title, int duration, String description) {
         this.title = title;
         this.duration = duration;
         this.description = description;
     }
-
 }

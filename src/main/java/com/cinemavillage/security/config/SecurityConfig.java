@@ -26,7 +26,7 @@ public class SecurityConfig {
                     //auth.antMatchers("/home").hasAuthority(Role.USER.name());
                     //auth.antMatchers("/home/**").hasAuthority(Role.USER.name());
                     auth.antMatchers("/book").hasAuthority(Role.USER.name());
-                    auth.antMatchers("/movie/add").hasAuthority(Role.ADMIN.name());
+                    //auth.antMatchers("/movie/add").hasAuthority(Role.ADMIN.name());
                 })
                 .formLogin()
                     .defaultSuccessUrl("/home", true);

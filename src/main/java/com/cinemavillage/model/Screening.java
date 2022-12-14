@@ -2,6 +2,7 @@ package com.cinemavillage.model;
 
 import lombok.Builder;
 import lombok.Data;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -17,7 +18,7 @@ public class Screening {
 
     @Id
     @Field(name = "screeningID")
-    private Long id;
+    private String id;
 
     @Field(name = "screeningSeatState")
     private List<Seat> seatState;
@@ -28,15 +29,13 @@ public class Screening {
     @Field(name = "screeningMovieName")
     private Movie movie;
 
-    public Screening(Long id, List<Seat> seatState, LocalDateTime screeningTime, Movie movie) {
-        this.id = id;
+    public Screening(List<Seat> seatState, LocalDateTime screeningTime, Movie movie) {
         this.seatState = seatState;
         this.screeningTime = screeningTime;
         this.movie = movie;
     }
 
-    public Screening(Long id, LocalDateTime screeningTime, Movie movie) {
-        this.id = id;
+    public Screening(LocalDateTime screeningTime, Movie movie) {
         this.screeningTime = screeningTime;
         this.movie = movie;
         this.seatState = new ArrayList<>();
