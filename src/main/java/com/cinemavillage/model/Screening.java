@@ -39,7 +39,7 @@ public class Screening {
         this.id = id;
         this.screeningTime = screeningTime;
         this.movie = movie;
-        this.seatState = new ArrayList<Seat>();
+        this.seatState = new ArrayList<>();
         setNewSeatState();
     }
     private void setNewSeatState() {
