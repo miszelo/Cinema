@@ -1,5 +1,6 @@
 package com.cinemavillage.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import org.bson.types.ObjectId;
@@ -14,6 +15,7 @@ import java.util.List;
 @Document(collection = "screening")
 @Data
 @Builder
+@AllArgsConstructor
 public class Screening {
 
     @Id
