@@ -23,12 +23,15 @@ public class ScreeningController {
 
         return null;
     }
+
     //currently not working
-    @PutMapping("/screening/add")
-    public ResponseEntity<?> addScreening(@RequestBody Screening screening){
-        //Screening newScreening = new Screening();
+    @PostMapping("/screening/add")
+    public ResponseEntity<?> addScreening(@RequestBody Screening screening) {
+        //System.out.println("\n\n" + screening.getScreeningTime() + "\n" + screening.getMovie().getTitle() + "\n\n");
+        Screening newScreening = new Screening(screening.getScreeningTime(), screening.getMovie());
+        System.out.println(newScreening.getMovie().toString());
         //screeningRepository.save(newScreening);
-        return new ResponseEntity<>("Screening added.",HttpStatus.OK);
+        return new ResponseEntity<>("Screening added.", HttpStatus.OK);
     }
 
 }

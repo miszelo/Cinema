@@ -1,9 +1,8 @@
 package com.cinemavillage.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.bson.types.ObjectId;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -15,7 +14,9 @@ import java.util.List;
 @Document(collection = "screening")
 @Data
 @Builder
+@ToString
 @AllArgsConstructor
+@NoArgsConstructor
 public class Screening {
 
     @Id
