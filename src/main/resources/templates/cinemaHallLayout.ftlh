@@ -191,8 +191,8 @@
 <script type="application/javascript">
     $('#getID').click(function () {
 
-        var arr = $(".active").toArray();
-        var newArr = [];
+        let arr = $(".active").toArray();
+        let newArr = [];
         $.each(arr, function (){
             newArr.push($(this).attr("id"))
         });

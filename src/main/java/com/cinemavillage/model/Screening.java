@@ -1,5 +1,8 @@
 package com.cinemavillage.model;
 
+import lombok.*;
+import org.bson.types.ObjectId;
+import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -9,11 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "screening")
+@Data
+@Builder
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Screening {
 
     @Id
     @Field(name = "screeningID")
-    private Long id;
+    private String id;
 
     @Field(name = "screeningSeatState")
     private List<Seat> seatState;
@@ -24,18 +32,16 @@ public class Screening {
     @Field(name = "screeningMovieName")
     private Movie movie;
 
-    Screening(Long id, List<Seat> seatState, LocalDateTime screeningTime, Movie movie) {
-        this.id = id;
+    public Screening(List<Seat> seatState, LocalDateTime screeningTime, Movie movie) {
         this.seatState = seatState;
         this.screeningTime = screeningTime;
         this.movie = movie;
     }
 
-    public Screening(Long id, LocalDateTime screeningTime, Movie movie) {
-        this.id = id;
+    public Screening(LocalDateTime screeningTime, Movie movie) {
         this.screeningTime = screeningTime;
         this.movie = movie;
-        this.seatState = new ArrayList<Seat>();
+        this.seatState = new ArrayList<>();
         setNewSeatState();
     }
     private void setNewSeatState() {

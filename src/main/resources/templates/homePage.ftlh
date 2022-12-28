@@ -8,26 +8,26 @@
 <body>
 <div class="topnav">
     <a class="active" href="http://localhost:8080/home">Home</a>
-    <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >TESTESTEST</a>
+    <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button">TESTESTEST</a>
     <a href="http://localhost:8080/logout">Log out</a>
     <input type="date" id="date" value=${date}>
 </div>
 <br>
 <div class="listBox">
-<div class="movieList">
-<!--<button onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >cinema</button>-->
-<#list movies as m>
-    <div class = "movieContainer">
-        <div class = "movieBox">
-            <p class="title"><b>${m.title}</b></p>
-            <p class="description"><i>${m.description}</i></p>
-            <!-- Klikniecie w button musi brać movieTitle oraz date z gory by na ich podstawie zwracać godziny seansów-->
-        </div>
-        <button class="pickBtn effect" id="pickMovie">Wybierz</button>
+    <div class="movieList">
+        <!--<button onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button" >cinema</button>-->
+        <#list movies as m>
+            <div class="movieContainer">
+                <div class="movieBox">
+                    <p class="title"><b>${m.title}</b></p>
+                    <p class="description"><i>${m.description}</i></p>
+                    <!-- Klikniecie w button musi brać movieTitle oraz date z gory by na ich podstawie zwracać godziny seansów-->
+                </div>
+                <button class="pickBtn effect" id="pickMovie">Wybierz</button>
+            </div>
+            <br>
+        </#list>
     </div>
-    <br>
-</#list>
-</div>
 </div>
 <#list screenings as scr>
     <div>
@@ -36,4 +36,25 @@
     </div>
 </#list>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script type="application/javascript">
+
+    $('#date').on('input', function () {
+        let date = document.getElementById("date").value;
+        console.log(date);
+        let dateFormatted = new Date(date);
+        let day = dateFormatted.getDate();
+        if (day < 10) {
+            day = '0' + day;
+        }
+        let month = dateFormatted.getMonth() + 1;
+        if (month < 10) {
+            month = '0' + month;
+        }
+        let year = dateFormatted.getFullYear();
+        let formattedDate = day + "-" + month + "-" + year;
+        window.location.replace("http://localhost:8080/home/" + formattedDate.toString());
+    });
+</script>
 </html>

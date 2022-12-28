@@ -42,15 +42,31 @@ public class ReservationService {
     public void reserve(UserDetailsImpl userDetails, ReservationDTO reservationDTO) {
         User user = userRepository.findByEmailIgnoreCase(userDetails.getUsername())
                 .orElseThrow(UserNotFoundException::new);
+
+        Movie movie = movieRepository.findMovieByTitle(reservationDTO.getMovieTitle());
+
         Ticket ticket = Ticket.builder()
                 .user(user)
-                .movie(movieRepository.findMovieByTitle(reservationDTO.getMovieTitle()))
+                .movie(movie)
                 .build();
+
+        Screening screening = screeningRepository.findScreeningByMovieAndScreeningTime(movie, reservationDTO.getMovieDate());
+
         user.getTickets().add(ticket);
+        var currentSeats = screening.getSeatState();
+        var reservedSeats = reservationDTO.getSeats();
+        for (int i = 0; i < currentSeats.size(); i++) {
+            if ((currentSeats.get(i).getRow() == reservedSeats.get(i).getRow() &&
+                    currentSeats.get(i).getColumn() == reservedSeats.get(i).getColumn()) &&
+                    !currentSeats.get(i).isTaken() && reservedSeats.get(i).isTaken()) {
+                currentSeats.get(i).setTaken(true);
+            }
+        }
+        screeningRepository.save(screening);
         userRepository.save(user);
         ticketRepository.save(ticket);
 
-        //TODO update hall seats
+        //TODO update hall currentSeats
         //TODO reservationDTO
         //TODO ticket
 

@@ -1,4 +1,4 @@
-package com.cinemavillage.controller;
+package com.cinemavillage.controller.web;
 
 import com.cinemavillage.model.Screening;
 import com.cinemavillage.model.Movie;
@@ -28,12 +28,7 @@ public class IndexController {
 
     private final MovieRepository movieRepository;
 
-    @RequestMapping("/")
-    public String homePage() {
-        return HOME_PAGE;
-    }
-
-    @RequestMapping(value={"/home/{date}","/home"})
+    @RequestMapping(value={"/home/{date}","/home","/"})
     public String homePage(Model model, @PathVariable Optional<String> date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         if (date.isPresent()) {
