@@ -26,7 +26,6 @@ public class ScreeningController {
 
     @PostMapping("/screening/add")
     public ResponseEntity<?> addScreening(@RequestBody Screening screening) {
-        System.out.println("\n\n" + screening.getScreeningTime() + "\n" + screening.getMovie().getTitle() + "\n\n" + screening.getMovie().getDuration());
         Screening newScreening = new Screening(screening.getScreeningTime(), screening.getMovie());
         screeningRepository.save(newScreening);
         return new ResponseEntity<>("Screening added.", HttpStatus.OK);
