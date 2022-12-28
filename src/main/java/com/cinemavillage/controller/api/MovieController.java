@@ -1,4 +1,4 @@
-package com.cinemavillage.controller;
+package com.cinemavillage.controller.api;
 
 import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.Screening;
