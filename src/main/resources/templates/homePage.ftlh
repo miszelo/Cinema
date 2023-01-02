@@ -23,9 +23,14 @@
                     <p class="description"><i>${m.description}</i></p>
                     <!-- Klikniecie w button musi brać movieTitle oraz date z gory by na ich podstawie zwracać godziny seansów-->
                 </div>
-                <button class="pickBtn effect" id="pickMovie">Wybierz</button>
+                <#list screenings as s>
+                    <#if s.movie.title==m.title>
+                        <button class="pickBtn effect" id="pickMovie">${s.screeningTime.toLocalTime()}</button>
+                    </#if>
+                </#list>
             </div>
             <br>
+
         </#list>
     </div>
 </div>
