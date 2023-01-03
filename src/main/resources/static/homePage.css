@@ -19,6 +19,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     padding: 20px;
+    width: 70%;
 }
 
 .title {
@@ -104,4 +105,7 @@ body {
 }
 .effect:hover {
     box-shadow: 0 0 40px 40px #4d1326 inset;
+}
+#pickMovie {
+
 }
