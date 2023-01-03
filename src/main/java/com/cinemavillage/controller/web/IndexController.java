@@ -15,8 +15,10 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 @AllArgsConstructor
@@ -35,20 +37,19 @@ public class IndexController {
             LocalDate localDate = LocalDate.parse(date.get() ,formatter);
             model.addAttribute("date", localDate);
             List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
-            model.addAttribute("screenings",testSeanse);
+            List<Screening> sortedScreenings = testSeanse.stream().sorted(Comparator.comparing(Screening::getScreeningTime)).toList();
+            model.addAttribute("screenings",sortedScreenings);
         } else {
             LocalDate localDate = LocalDate.now();
             model.addAttribute("date", localDate);
             List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
-            model.addAttribute("screenings",testSeanse);
+            List<Screening> sortedScreenings = testSeanse.stream().sorted(Comparator.comparing(Screening::getScreeningTime)).toList();
+            model.addAttribute("screenings",sortedScreenings);
         }
 
         List<Movie> movies = movieRepository.findAll();
         model.addAttribute("movies", movies);
         model.addAttribute("today", LocalDateTime.now().truncatedTo(ChronoUnit.DAYS));
-        //TODO
-        //do modelu dodać coś na podstawie czego można mieć godziny seansów, tj tytuł filmu i date
-        //czyli dla kazdego tytulu filmu i danej daty znalezc godziny seansów ktore powinny zostac zawarte w modelu
         return HOME_PAGE;
     }
 
