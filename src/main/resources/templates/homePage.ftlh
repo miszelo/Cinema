@@ -15,21 +15,31 @@
 <br>
 <div class="listBox">
     <div class="movieList">
-        <#list movies as m>
-            <div class="movieContainer">
-                <div class="movieBox">
-                    <p class="title"><b>${m.title}</b></p>
-                    <p class="description"><i>${m.description}</i></p>
-                </div>
-                <#list screenings as s>
-                    <#if s.movie.title==m.title>
-                        <button class="pickBtn effect" id="${date} ${s.screeningTime.toLocalTime()} ${s.movie.title}">${s.screeningTime.toLocalTime()}</button>
-                    </#if>
-                </#list>
-            </div>
-            <br>
-
+        <#assign movie = []>
+        <#list screenings as ss>
+            <#assign mov = ss.movie>
+            <#if movie?seq_contains(mov)>
+            <#else>
+            <#assign movie = movie + [mov]>
+            <#list movies as m>
+                <#if ss.movie.title == m.title>
+                    <div class="movieContainer">
+                        <div class="movieBox">
+                            <p class="title"><b>${m.title}</b></p>
+                            <p class="description"><i>${m.description}</i></p>
+                        </div>
+                        <#list screenings as s>
+                            <#if s.movie.title==m.title>
+                                <button class="pickBtn effect" id="${date} ${s.screeningTime.toLocalTime()} ${s.movie.title}">${s.screeningTime.toLocalTime()}</button>
+                            </#if>
+                        </#list>
+                    </div>
+                    <br>
+                </#if>
+            </#list>
+            </#if>
         </#list>
+
     </div>
 </div>
 </body>
