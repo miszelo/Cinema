@@ -21,16 +21,6 @@ import java.util.List;
 public class ReservationController {
 
     private final ReservationService reservationService;
-
-
-//    @GetMapping("/screening/{movieTitle}/{date}")
-//        public String getHallView(Model model, @PathVariable LocalDateTime date, @PathVariable String movieTitle, HttpServletRequest request) {
-//            //model.addAttribute("hall",reservationService.getHallByDate(LocalDateTime.of(date.toLocalDate(), LocalTime.MIDNIGHT), LocalDateTime.of(date.toLocalDate().plusDays(1),LocalTime.MIDNIGHT)));
-//        List<Seat> seats =
-//        model.addAttribute("seatState",);
-//        return "cinemaHallLayout";
-//    }
-
     @PostMapping("/reserve")
     public void reserve(@AuthenticationPrincipal UserDetailsImpl userDetails,
                         @RequestBody ReservationDTO reservationDTO) {
