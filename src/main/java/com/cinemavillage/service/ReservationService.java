@@ -16,7 +16,6 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,28 +50,21 @@ public class ReservationService {
                 .user(user)
                 .movie(movie)
                 .build();
-//        LocalDateTime screeningDate = LocalDateTime.parse(reservationDTO.getMovieDate(),
-//                DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX"));
-//        System.out.println(screeningDate);
+        LocalDateTime screeningTime = LocalDateTime.parse(reservationDTO.getMovieDate());
+        Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(reservationDTO.getMovieTitle(), screeningTime);
+        System.out.println(screening);
+        if (user.getTickets() == null) {
+            user.setTickets(new ArrayList<>());
+        }
+        user.getTickets().add(ticket);
+        var currentSeats = screening.getSeatState();
+        var reservedSeats = reservationDTO.getSeats();
 
-//        Screening screening = screeningRepository.findScreeningByMovieAndScreeningTime(movie, screeningDate);
-//        Screening screening3 = screeningRepository.findScreeningByMovieTitleAndScreeningTime(
-//                movie.getTitle(),
-//                reservationDTO.getMovieDate());
-        //System.out.println("Screening: " + screening3);
-//
-//        if(user.getTickets() == null) {
-//            user.setTickets(new ArrayList<>());
-//        }
-//        user.getTickets().add(ticket);
-////        var currentSeats = screening.getSeatState();
-////        var reservedSeats = reservationDTO.getSeats();
-////
-////        for (Integer seatNumber : reservedSeats) {
-////            currentSeats.get(seatNumber - 1).setTaken(true);
-////        }
-////        screeningRepository.save(screening);
-//        userRepository.save(user);
-//        ticketRepository.save(ticket);
+        for (Integer seatNumber : reservedSeats) {
+            currentSeats.get(seatNumber - 1).setTaken(true);
+        }
+        screeningRepository.save(screening);
+        userRepository.save(user);
+        ticketRepository.save(ticket);
     }
 }
