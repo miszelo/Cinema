@@ -183,8 +183,7 @@
     <#if ss.isTaken()==true>
         <p value="${a}" style="color:#62bbff">${a}</p>
         <script>
-            //document.getElementById("${a}").toggleClass('taken');
-            console.log(document.getElementById('${a}').classList.add('taken'));
+            document.getElementById('${a}').classList.add('taken');
         </script>
     </#if>
 </#list>
