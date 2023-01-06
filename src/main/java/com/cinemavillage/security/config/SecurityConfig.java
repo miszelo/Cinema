@@ -1,6 +1,5 @@
 package com.cinemavillage.security.config;
 
-import com.cinemavillage.model.user.Role;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,16 +21,9 @@ public class SecurityConfig {
                 .csrf().disable()
                 .headers().frameOptions().disable()
                 .and()
-                .authorizeRequests(auth -> {
-                    //auth.antMatchers("/").hasAuthority(Role.USER.name());
-                    auth.antMatchers("/register").permitAll();
-                    //auth.antMatchers("/home").hasAuthority(Role.USER.name());
-                    //auth.antMatchers("/home/**").hasAuthority(Role.USER.name());
-                    auth.antMatchers("/book").hasAuthority(Role.USER.name());
-                    //auth.antMatchers("/movie/add").hasAuthority(Role.ADMIN.name());
-                })
+                .authorizeRequests(auth -> auth.anyRequest().permitAll())
                 .formLogin()
-                    .defaultSuccessUrl("/home", true);
+                .defaultSuccessUrl("/home", true);
         return http.build();
     }
 

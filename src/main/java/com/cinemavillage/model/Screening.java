@@ -1,8 +1,6 @@
 package com.cinemavillage.model;
 
 import lombok.*;
-import org.bson.types.ObjectId;
-import org.springframework.cglib.core.Local;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -32,18 +30,13 @@ public class Screening {
     @Field(name = "screeningMovieName")
     private Movie movie;
 
-    public Screening(List<Seat> seatState, LocalDateTime screeningTime, Movie movie) {
-        this.seatState = seatState;
-        this.screeningTime = screeningTime;
-        this.movie = movie;
-    }
-
     public Screening(LocalDateTime screeningTime, Movie movie) {
         this.screeningTime = screeningTime;
         this.movie = movie;
         this.seatState = new ArrayList<>();
         setNewSeatState();
     }
+
     private void setNewSeatState() {
         for (int row = 1; row < 8; row++) {
             for (int column = 1; column < 15; column++) {

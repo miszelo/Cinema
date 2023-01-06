@@ -13,7 +13,7 @@
 <div class="theatre">
     <div class="cinema-seats left">
         <div class="cinema-row row-1">
-            <div class="seat" id="1" ></div>
+            <div class="seat" id="1"></div>
             <div class="seat" id="15"></div>
             <div class="seat" id="29"></div>
             <div class="seat" id="43"></div>
@@ -177,6 +177,16 @@
     <p class="text">WYBRANE</p>
     <p class="text">ZAJĘTE</p>
 </div>
+<#assign a = 0>
+<#list seatState as ss>
+    <#assign a = a+1>
+    <#if ss.isTaken()==true>
+        <p value="${a}" style="color:#62bbff">${a}</p>
+        <script>
+            document.getElementById('${a}').classList.add('taken');
+        </script>
+    </#if>
+</#list>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -200,12 +210,7 @@
         $(".active").toggleClass('active');
     });
 </script>
-<script>
-    <#list seatState as ss>
 
-
-    </#list>
-</script>
 
 </body>
 </html>

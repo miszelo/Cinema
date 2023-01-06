@@ -1,19 +1,14 @@
 package com.cinemavillage.controller;
 
 import com.cinemavillage.dto.ReservationDTO;
-import com.cinemavillage.model.Seat;
 import com.cinemavillage.security.config.UserDetailsImpl;
 import com.cinemavillage.service.ReservationService;
 import lombok.AllArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.HttpServletRequest;
-import java.time.LocalDateTime;
-import java.util.List;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @AllArgsConstructor
@@ -22,16 +17,7 @@ public class ReservationController {
 
     private final ReservationService reservationService;
 
-
-//    @GetMapping("/screening/{movieTitle}/{date}")
-//        public String getHallView(Model model, @PathVariable LocalDateTime date, @PathVariable String movieTitle, HttpServletRequest request) {
-//            //model.addAttribute("hall",reservationService.getHallByDate(LocalDateTime.of(date.toLocalDate(), LocalTime.MIDNIGHT), LocalDateTime.of(date.toLocalDate().plusDays(1),LocalTime.MIDNIGHT)));
-//        List<Seat> seats =
-//        model.addAttribute("seatState",);
-//        return "cinemaHallLayout";
-//    }
-
-    @PostMapping("/reserve")
+    @PutMapping("/reserve")
     public void reserve(@AuthenticationPrincipal UserDetailsImpl userDetails,
                         @RequestBody ReservationDTO reservationDTO) {
         reservationService.reserve(userDetails, reservationDTO);
