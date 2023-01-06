@@ -30,7 +30,7 @@
                         </div>
                         <#list screenings as s>
                             <#if s.movie.title==m.title>
-                                <button class="pickBtn effect" id="${date} ${s.screeningTime.toLocalTime()} ${s.movie.title}">${s.screeningTime.toLocalTime()}</button>
+                                <button class="pickBtn effect" id="${date}_${s.screeningTime.toLocalTime()}_${s.movie.title}" onclick="goToScreening(this)">${s.screeningTime.toLocalTime()}</button>
                             </#if>
                         </#list>
                     </div>
@@ -39,7 +39,6 @@
             </#list>
             </#if>
         </#list>
-
     </div>
 </div>
 </body>
@@ -63,5 +62,14 @@
         let formattedDate = day + "-" + month + "-" + year;
         window.location.replace("http://localhost:8080/home/" + formattedDate.toString());
     });
+</script>
+<script type="application/javascript">
+    function goToScreening(button) {
+        let id = button.id;
+        let arr = id.split("_");
+        console.log(id);
+        console.log(arr);
+        //window.location.replace("http://localhost:8080/);
+    }
 </script>
 </html>
