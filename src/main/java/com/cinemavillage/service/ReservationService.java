@@ -16,6 +16,8 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -49,26 +51,28 @@ public class ReservationService {
                 .user(user)
                 .movie(movie)
                 .build();
+//        LocalDateTime screeningDate = LocalDateTime.parse(reservationDTO.getMovieDate(),
+//                DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSXXX"));
+//        System.out.println(screeningDate);
 
-        Screening screening = screeningRepository.findScreeningByMovieAndScreeningTime(movie, reservationDTO.getMovieDate());
-
-        user.getTickets().add(ticket);
-        var currentSeats = screening.getSeatState();
-        var reservedSeats = reservationDTO.getSeats();
-        for (int i = 0; i < currentSeats.size(); i++) {
-            if ((currentSeats.get(i).getRow() == reservedSeats.get(i).getRow() &&
-                    currentSeats.get(i).getColumn() == reservedSeats.get(i).getColumn()) &&
-                    !currentSeats.get(i).isTaken() && reservedSeats.get(i).isTaken()) {
-                currentSeats.get(i).setTaken(true);
-            }
-        }
-        screeningRepository.save(screening);
-        userRepository.save(user);
-        ticketRepository.save(ticket);
-
-        //TODO update hall currentSeats
-        //TODO reservationDTO
-        //TODO ticket
-
+//        Screening screening = screeningRepository.findScreeningByMovieAndScreeningTime(movie, screeningDate);
+        Screening screening3 = screeningRepository.findScreeningByMovieTitleAndScreeningTime(
+                movie.getTitle(),
+                reservationDTO.getMovieDate());
+        System.out.println("Screening: " + screening3);
+//
+//        if(user.getTickets() == null) {
+//            user.setTickets(new ArrayList<>());
+//        }
+//        user.getTickets().add(ticket);
+////        var currentSeats = screening.getSeatState();
+////        var reservedSeats = reservationDTO.getSeats();
+////
+////        for (Integer seatNumber : reservedSeats) {
+////            currentSeats.get(seatNumber - 1).setTaken(true);
+////        }
+////        screeningRepository.save(screening);
+//        userRepository.save(user);
+//        ticketRepository.save(ticket);
     }
 }

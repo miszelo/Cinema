@@ -151,7 +151,7 @@
             <div class="seat" id="56"></div>
             <div class="seat" id="70"></div>
             <div class="seat" id="84"></div>
-            <div class="seat" id="98"></div>
+            <div class="seat" id="98" ></div>
         </div>
     </div>
 

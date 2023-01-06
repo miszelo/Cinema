@@ -28,7 +28,7 @@ public class ReservationController {
         return "cinemaHallLayout";
     }
 
-    @PostMapping
+    @PostMapping("/reserve")
     public void reserve(@AuthenticationPrincipal UserDetailsImpl userDetails,
                         @RequestBody ReservationDTO reservationDTO) {
         reservationService.reserve(userDetails, reservationDTO);
