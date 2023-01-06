@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../static/homePage.css">
+    <link rel="stylesheet" href="/static/homePage.css">
 </head>
 <body>
 <div class="topnav">
@@ -69,7 +69,11 @@
         let arr = id.split("_");
         console.log(id);
         console.log(arr);
-        //window.location.replace("http://localhost:8080/);
+        let date = arr[0];
+        let time = arr[1];
+        let movie = arr[2];
+        console.log(date+"T"+time)
+        window.location.href = "http://localhost:8080/book/"+date+"T"+time+"/"+movie;
     }
 </script>
 </html>

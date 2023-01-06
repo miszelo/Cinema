@@ -56,10 +56,10 @@ public class ReservationService {
 //        System.out.println(screeningDate);
 
 //        Screening screening = screeningRepository.findScreeningByMovieAndScreeningTime(movie, screeningDate);
-        Screening screening3 = screeningRepository.findScreeningByMovieTitleAndScreeningTime(
-                movie.getTitle(),
-                reservationDTO.getMovieDate());
-        System.out.println("Screening: " + screening3);
+//        Screening screening3 = screeningRepository.findScreeningByMovieTitleAndScreeningTime(
+//                movie.getTitle(),
+//                reservationDTO.getMovieDate());
+        //System.out.println("Screening: " + screening3);
 //
 //        if(user.getTickets() == null) {
 //            user.setTickets(new ArrayList<>());
