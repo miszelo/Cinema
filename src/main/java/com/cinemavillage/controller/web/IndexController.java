@@ -1,9 +1,9 @@
 package com.cinemavillage.controller.web;
 
-import com.cinemavillage.model.Screening;
 import com.cinemavillage.model.Movie;
-import com.cinemavillage.repository.ScreeningRepository;
+import com.cinemavillage.model.Screening;
 import com.cinemavillage.repository.MovieRepository;
+import com.cinemavillage.repository.ScreeningRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +18,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Controller
 @AllArgsConstructor
@@ -30,21 +29,23 @@ public class IndexController {
 
     private final MovieRepository movieRepository;
 
-    @RequestMapping(value={"/home/{date}","/home","/"})
+    @RequestMapping(value = {"/home/{date}", "/home", "/"})
     public String homePage(Model model, @PathVariable Optional<String> date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         if (date.isPresent()) {
-            LocalDate localDate = LocalDate.parse(date.get() ,formatter);
+            LocalDate localDate = LocalDate.parse(date.get(), formatter);
             model.addAttribute("date", localDate);
-            List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
+            List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(
+                    LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),
+                    LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
             List<Screening> sortedScreenings = testSeanse.stream().sorted(Comparator.comparing(Screening::getScreeningTime)).toList();
-            model.addAttribute("screenings",sortedScreenings);
+            model.addAttribute("screenings", sortedScreenings);
         } else {
             LocalDate localDate = LocalDate.now();
             model.addAttribute("date", localDate);
-            List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
+            List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(LocalDateTime.of(localDate, LocalTime.parse("00:00:00")), LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
             List<Screening> sortedScreenings = testSeanse.stream().sorted(Comparator.comparing(Screening::getScreeningTime)).toList();
-            model.addAttribute("screenings",sortedScreenings);
+            model.addAttribute("screenings", sortedScreenings);
         }
 
         List<Movie> movies = movieRepository.findAll();
