@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../static/hallLay.css">
+    <link rel="stylesheet" href="/static/hallLay.css">
 
 </head>
 <body>
@@ -151,7 +151,7 @@
             <div class="seat" id="56"></div>
             <div class="seat" id="70"></div>
             <div class="seat" id="84"></div>
-            <div class="seat" id="98"></div>
+            <div class="seat" id="98" ></div>
         </div>
     </div>
 
@@ -185,7 +185,6 @@
         if (!$(this).hasClass('taken') && $(this).attr('id') !== undefined){
             $(this).toggleClass('active');
         }
-
     });
 </script>
 <script type="application/javascript">
@@ -200,6 +199,12 @@
         console.log(newArr);
         $(".active").toggleClass('active');
     });
+</script>
+<script>
+    <#list seatState as ss>
+
+
+    </#list>
 </script>
 
 </body>
