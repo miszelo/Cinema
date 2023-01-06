@@ -11,16 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 
 @Controller
@@ -39,15 +36,23 @@ public class IndexController {
         if (date.isPresent()) {
             LocalDate localDate = LocalDate.parse(date.get(), formatter);
             model.addAttribute("date", localDate);
-            List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(LocalDateTime.of(localDate, LocalTime.parse("00:00:00")), LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
-            List<Screening> sortedScreenings = testSeanse.stream().sorted(Comparator.comparing(Screening::getScreeningTime)).toList();
-            model.addAttribute("screenings", sortedScreenings);
+            List<Screening> screenings = screeningRepository.findScreeningsByScreeningTimeBetween(
+                            LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),
+                            LocalDateTime.of(localDate, LocalTime.parse("23:59:00")))
+                    .stream()
+                    .sorted(Comparator.comparing(Screening::getScreeningTime))
+                    .toList();
+            model.addAttribute("screenings", screenings);
         } else {
             LocalDate localDate = LocalDate.now();
             model.addAttribute("date", localDate);
-            List<Screening> testSeanse = screeningRepository.findScreeningsByScreeningTimeBetween(LocalDateTime.of(localDate, LocalTime.parse("00:00:00")), LocalDateTime.of(localDate, LocalTime.parse("23:59:00")));
-            List<Screening> sortedScreenings = testSeanse.stream().sorted(Comparator.comparing(Screening::getScreeningTime)).toList();
-            model.addAttribute("screenings", sortedScreenings);
+            List<Screening> screenings = screeningRepository.findScreeningsByScreeningTimeBetween(
+                            LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),
+                            LocalDateTime.of(localDate, LocalTime.parse("23:59:00")))
+                    .stream()
+                    .sorted(Comparator.comparing(Screening::getScreeningTime))
+                    .toList();
+            model.addAttribute("screenings", screenings);
         }
 
         List<Movie> movies = movieRepository.findAll();
@@ -57,19 +62,10 @@ public class IndexController {
     }
 
     @RequestMapping(value = {"/book/{date}/{movieTitle}"}, method = RequestMethod.GET)
-    public String getSeatView(Model model, @PathVariable String date, @PathVariable String movieTitle, HttpServletRequest request) {
-        System.out.println(date);
+    public String getSeatView(Model model, @PathVariable String date, @PathVariable String movieTitle) {
         LocalDateTime screeningTime = LocalDateTime.parse(date);
-        System.out.println(movieTitle);
-        System.out.println(screeningTime);
         Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(movieTitle, screeningTime);
         model.addAttribute("seatState", screening.getSeatState());
-        System.out.println(screening.getSeatState());
-        return CINEMA;
-    }
-
-    @RequestMapping("/cinema")
-    public String cinema() {
         return CINEMA;
     }
 }

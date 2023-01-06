@@ -12,12 +12,10 @@ import com.cinemavillage.repository.TicketRepository;
 import com.cinemavillage.repository.UserRepository;
 import com.cinemavillage.security.config.UserDetailsImpl;
 import lombok.AllArgsConstructor;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -27,18 +25,6 @@ public class ReservationService {
     private final MovieRepository movieRepository;
     private final TicketRepository ticketRepository;
     private final UserRepository userRepository;
-
-    public Screening getScreeningByMovieDate(Movie movie, LocalDateTime screeningTime) {
-        return screeningRepository.findScreeningByMovieAndScreeningTime(movie, screeningTime);
-    }
-
-    public List<Screening> getHallByDate(LocalDateTime start, LocalDateTime end) {
-        return screeningRepository.findScreeningsByScreeningTimeBetween(start, end);
-    }
-
-    public Movie getMovieById(ObjectId id) {
-        return movieRepository.findMoviesById(id);
-    }
 
     public void reserve(UserDetailsImpl userDetails, ReservationDTO reservationDTO) {
         User user = userRepository.findByEmailIgnoreCase(userDetails.getUsername())
