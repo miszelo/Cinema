@@ -21,7 +21,7 @@ import java.util.List;
 public class ReservationController {
 
     private final ReservationService reservationService;
-    @PostMapping("/reserve")
+    @PutMapping("/reserve")
     public void reserve(@AuthenticationPrincipal UserDetailsImpl userDetails,
                         @RequestBody ReservationDTO reservationDTO) {
         reservationService.reserve(userDetails, reservationDTO);
