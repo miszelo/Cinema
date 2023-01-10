@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -31,6 +32,7 @@ public class IndexController {
     private final MovieRepository movieRepository;
 
     @RequestMapping(value = {"/home/{date}", "/home", "/"}, method = RequestMethod.GET)
+    @ResponseBody
     public String homePage(Model model, @PathVariable Optional<String> date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         if (date.isPresent()) {
