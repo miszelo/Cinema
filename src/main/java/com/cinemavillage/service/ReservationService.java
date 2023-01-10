@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -30,27 +31,41 @@ public class ReservationService {
         User user = userRepository.findByEmailIgnoreCase(userDetails.getUsername())
                 .orElseThrow(UserNotFoundException::new);
 
+        System.out.println(user);
         Movie movie = movieRepository.findMovieByTitle(reservationDTO.getMovieTitle());
+
+
+        LocalDateTime screeningTime = LocalDateTime.parse(reservationDTO.getMovieDate());
+        Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(
+                reservationDTO.getMovieTitle(),
+                screeningTime);
 
         Ticket ticket = Ticket.builder()
                 .user(user)
                 .movie(movie)
+                .screening(screening)
                 .build();
-        LocalDateTime screeningTime = LocalDateTime.parse(reservationDTO.getMovieDate());
-        Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(reservationDTO.getMovieTitle(), screeningTime);
-        System.out.println(screening);
+
+        System.out.println(ticket);
+        ticketRepository.save(ticket);
+
         if (user.getTickets() == null) {
-            user.setTickets(new ArrayList<>());
+            List<Ticket> tickets = new ArrayList<>();
+            user.setTickets(tickets);
         }
         user.getTickets().add(ticket);
+        System.out.println(user);
         var currentSeats = screening.getSeatState();
         var reservedSeats = reservationDTO.getSeats();
 
         for (Integer seatNumber : reservedSeats) {
             currentSeats.get(seatNumber - 1).setTaken(true);
         }
+        screening.setSeatState(currentSeats);
+        System.out.println("Screening " + screening);
+        System.out.println("User " + user);
+        System.out.println("ticket " + ticket);
         screeningRepository.save(screening);
         userRepository.save(user);
-        ticketRepository.save(ticket);
     }
 }
