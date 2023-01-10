@@ -66,6 +66,8 @@ public class IndexController {
         LocalDateTime screeningTime = LocalDateTime.parse(date);
         Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(movieTitle, screeningTime);
         model.addAttribute("seatState", screening.getSeatState());
+        model.addAttribute("date", date);
+        model.addAttribute("movieTitle", movieTitle);
         return CINEMA;
     }
 }

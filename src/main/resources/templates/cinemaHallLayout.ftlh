@@ -204,9 +204,24 @@
         $.each(arr, function (){
             newArr.push($(this).attr("id"))
         });
+        const reservationDetails = {
+            "seats" : newArr,
+            "movieDate" : "${date}",
+            "movieTitle" : "${movieTitle}"
+        }
+
+        let xhr = new XMLHttpRequest();
+        let url = "/book/reserve";
+        xhr.open("PUT", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(reservationDetails));
+
         $(".active").addClass('taken');
         console.log(newArr);
+        console.log("${date}");
+        console.log("${movieTitle}");
         $(".active").toggleClass('active');
+
     });
 </script>
 
