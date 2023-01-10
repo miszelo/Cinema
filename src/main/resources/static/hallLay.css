@@ -25,6 +25,7 @@ body {
 .content {
     justify-content: center;
     align-content: center;
+    padding: 100px;
 }
 .theatre {
     display: flex;

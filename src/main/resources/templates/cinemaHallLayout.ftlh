@@ -9,7 +9,7 @@
 <body>
 <div class="section">
     <div class="screen">
-        <div>
+        <div class="content">
             Tytuł: ${movieTitle}
             <br>
             Data: ${day}
