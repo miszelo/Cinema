@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.List;
+import java.util.Set;
 
 @Document
 @Getter
@@ -31,6 +31,6 @@ public class User {
     private Role role;
 
     @Field(name = "userTickets")
-    private List<Ticket> tickets;
+    private Set<Ticket> tickets;
 
 }
