@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="text">REJESTRACJA</div>
-<form class="input" method="POST" action="http://localhost:8080/register">
+<form class="input" method="POST" action="/register">
     <input id="userEmail" type="email" name="userEmail" placeholder="E-mail">
     <input id="userPassword" type="password" name="userPassword" placeholder="Password">
     <input type="submit" value="Zarejestruj"/>
@@ -32,7 +32,7 @@
         }).then(res => {
             if (res.status === 200) {
                 alert('Success');
-                window.location.href = 'http://localhost:8080/login';
+                window.location.href = '/login';
             } else {
                 alert("Ups... Something gone wrong. Please try again.")
             }

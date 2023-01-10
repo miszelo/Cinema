@@ -8,7 +8,19 @@
 </head>
 <body>
 <div class="section">
-    <div class="screen"></div>
+    <div class="screen">
+        <div class="content">
+            Tytuł: ${movieTitle}
+            <br>
+            Data: ${day}
+            <br>
+            Godzina: ${hour}
+            <br>
+            Czas trwania: ${duration} minut
+            <br>
+            Opis: ${description}
+        </div>
+    </div>
 </div>
 <div class="theatre">
     <div class="cinema-seats left">
@@ -181,7 +193,6 @@
 <#list seatState as ss>
     <#assign a = a+1>
     <#if ss.isTaken()==true>
-        <p value="${a}" style="color:#62bbff">${a}</p>
         <script>
             document.getElementById('${a}').classList.add('taken');
         </script>
@@ -205,9 +216,24 @@
         $.each(arr, function (){
             newArr.push($(this).attr("id"))
         });
+        const reservationDetails = {
+            "seats" : newArr,
+            "movieDate" : "${date}",
+            "movieTitle" : "${movieTitle}"
+        }
+
+        let xhr = new XMLHttpRequest();
+        let url = "/book/reserve";
+        xhr.open("PUT", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.send(JSON.stringify(reservationDetails));
+
         $(".active").addClass('taken');
         console.log(newArr);
+        console.log("${date}");
+        console.log("${movieTitle}");
         $(".active").toggleClass('active');
+
     });
 </script>
 

@@ -7,9 +7,8 @@
 </head>
 <body>
 <div class="topnav">
-    <a class="active" href="http://localhost:8080/home">Home</a>
-    <a onclick="location.href = 'http://localhost:8080/cinema';" id="myButton" class="float-left submit-button">TESTESTEST</a>
-    <a href="http://localhost:8080/logout">Log out</a>
+    <a class="active" href="/home">Home</a>
+    <a href="/logout">Log out</a>
     <input type="date" id="date" value=${date}>
 </div>
 <br>
@@ -17,7 +16,7 @@
     <div class="movieList">
         <#assign movie = []>
         <#list screenings as ss>
-            <#assign mov = ss.movie>
+            <#assign mov = ss.movie.title>
             <#if movie?seq_contains(mov)>
             <#else>
             <#assign movie = movie + [mov]>
@@ -60,7 +59,7 @@
         }
         let year = dateFormatted.getFullYear();
         let formattedDate = day + "-" + month + "-" + year;
-        window.location.replace("http://localhost:8080/home/" + formattedDate.toString());
+        window.location.replace("/home/" + formattedDate.toString());
     });
 </script>
 <script type="application/javascript">
@@ -73,7 +72,7 @@
         let time = arr[1];
         let movie = arr[2];
         console.log(date+"T"+time)
-        window.location.href = "http://localhost:8080/book/"+date+"T"+time+"/"+movie;
+        window.location.href = "/book/"+date+"T"+time+"/"+movie;
     }
 </script>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -66,6 +67,12 @@ public class IndexController {
         LocalDateTime screeningTime = LocalDateTime.parse(date);
         Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(movieTitle, screeningTime);
         model.addAttribute("seatState", screening.getSeatState());
+        model.addAttribute("date", date);
+        model.addAttribute("day", date.split("T")[0]);
+        model.addAttribute("hour", date.split("T")[1]);
+        model.addAttribute("duration", screening.getMovie().getDuration());
+        model.addAttribute("description", screening.getMovie().getDescription());
+        model.addAttribute("movieTitle", movieTitle);
         return CINEMA;
     }
 }

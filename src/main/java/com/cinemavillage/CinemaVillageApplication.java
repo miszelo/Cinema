@@ -2,10 +2,16 @@ package com.cinemavillage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class CinemaVillageApplication {
+public class CinemaVillageApplication extends SpringBootServletInitializer {
 
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(CinemaVillageApplication.class);
+    }
     public static void main(String[] args) {
         SpringApplication.run(CinemaVillageApplication.class, args);
     }

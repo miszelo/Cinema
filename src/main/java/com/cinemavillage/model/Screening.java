@@ -1,6 +1,7 @@
 package com.cinemavillage.model;
 
 import lombok.*;
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -10,16 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "screening")
-@Data
-@Builder
-@ToString
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Screening {
 
     @Id
     @Field(name = "screeningID")
-    private String id;
+    private ObjectId id;
 
     @Field(name = "screeningSeatState")
     private List<Seat> seatState;
