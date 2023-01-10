@@ -31,9 +31,7 @@ public class ReservationService {
         User user = userRepository.findByEmailIgnoreCase(userDetails.getUsername())
                 .orElseThrow(UserNotFoundException::new);
 
-        System.out.println(user);
         Movie movie = movieRepository.findMovieByTitle(reservationDTO.getMovieTitle());
-
 
         LocalDateTime screeningTime = LocalDateTime.parse(reservationDTO.getMovieDate());
         Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(
@@ -46,15 +44,12 @@ public class ReservationService {
                 .screening(screening)
                 .build();
 
-        System.out.println(ticket);
-        ticketRepository.save(ticket);
-
         if (user.getTickets() == null) {
             Set<Ticket> tickets = new HashSet<>();
             user.setTickets(tickets);
         }
         user.getTickets().add(ticket);
-        System.out.println(user);
+
         var currentSeats = screening.getSeatState();
         var reservedSeats = reservationDTO.getSeats();
 
@@ -62,10 +57,8 @@ public class ReservationService {
             currentSeats.get(seatNumber - 1).setTaken(true);
         }
         screening.setSeatState(currentSeats);
-        System.out.println("Screening " + screening);
-        System.out.println("User " + user);
-        System.out.println("ticket " + ticket);
         screeningRepository.save(screening);
+        ticketRepository.save(ticket);
         userRepository.save(user);
     }
 }
