@@ -15,6 +15,10 @@
             Data: ${day}
             <br>
             Godzina: ${hour}
+            <br>
+            Czas trwania: ${duration} minut
+            <br>
+            Opis: ${description}
         </div>
     </div>
 </div>

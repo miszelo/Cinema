@@ -69,6 +69,8 @@ public class IndexController {
         model.addAttribute("date", date);
         model.addAttribute("day", date.split("T")[0]);
         model.addAttribute("hour", date.split("T")[1]);
+        model.addAttribute("duration", screening.getMovie().getDuration());
+        model.addAttribute("description", screening.getMovie().getDescription());
         model.addAttribute("movieTitle", movieTitle);
         return CINEMA;
     }
