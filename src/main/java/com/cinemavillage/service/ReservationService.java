@@ -15,8 +15,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -50,7 +50,7 @@ public class ReservationService {
         ticketRepository.save(ticket);
 
         if (user.getTickets() == null) {
-            List<Ticket> tickets = new ArrayList<>();
+            Set<Ticket> tickets = new HashSet<>();
             user.setTickets(tickets);
         }
         user.getTickets().add(ticket);
