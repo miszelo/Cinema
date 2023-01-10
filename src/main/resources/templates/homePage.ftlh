@@ -17,7 +17,7 @@
     <div class="movieList">
         <#assign movie = []>
         <#list screenings as ss>
-            <#assign mov = ss.movie>
+            <#assign mov = ss.movie.title>
             <#if movie?seq_contains(mov)>
             <#else>
             <#assign movie = movie + [mov]>

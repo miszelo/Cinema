@@ -181,7 +181,6 @@
 <#list seatState as ss>
     <#assign a = a+1>
     <#if ss.isTaken()==true>
-        <p value="${a}" style="color:#62bbff">${a}</p>
         <script>
             document.getElementById('${a}').classList.add('taken');
         </script>
