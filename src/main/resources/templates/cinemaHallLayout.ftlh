@@ -8,7 +8,15 @@
 </head>
 <body>
 <div class="section">
-    <div class="screen"></div>
+    <div class="screen">
+        <div>
+            Tytuł: ${movieTitle}
+            <br>
+            Data: ${day}
+            <br>
+            Godzina: ${hour}
+        </div>
+    </div>
 </div>
 <div class="theatre">
     <div class="cinema-seats left">

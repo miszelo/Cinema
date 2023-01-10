@@ -67,6 +67,8 @@ public class IndexController {
         Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(movieTitle, screeningTime);
         model.addAttribute("seatState", screening.getSeatState());
         model.addAttribute("date", date);
+        model.addAttribute("day", date.split("T")[0]);
+        model.addAttribute("hour", date.split("T")[1]);
         model.addAttribute("movieTitle", movieTitle);
         return CINEMA;
     }
