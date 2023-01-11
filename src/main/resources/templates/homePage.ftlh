@@ -9,7 +9,7 @@
 <div class="topnav">
     <a class="active" href="/home">Home</a>
     <a href="/logout">Log out</a>
-    <input type="date" id="date" value=${date}>
+    <input type="date" id="date" class="date" value=${date}>
 </div>
 <br>
 <div class="listBox">
