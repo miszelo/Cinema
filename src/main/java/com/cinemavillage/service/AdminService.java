@@ -3,6 +3,7 @@ package com.cinemavillage.service;
 import com.cinemavillage.model.Screening;
 import com.cinemavillage.repository.ScreeningRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,10 @@ public class AdminService {
 
     private final ScreeningRepository screeningRepository;
 
-    public ResponseEntity<?> addScreening(Screening screening) {
+    public ResponseEntity<Screening> addScreening(Screening screening) {
+        if (screening.getMovie() == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         screeningRepository.save(screening);
         return ResponseEntity.ok(screening);
     }

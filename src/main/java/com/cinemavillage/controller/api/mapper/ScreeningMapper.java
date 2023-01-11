@@ -18,7 +18,7 @@ public class ScreeningMapper {
 
     public Screening mapScreeningDTOToScreening(NewScreeningDTO newScreeningDTO) {
         return Screening.builder()
-                .screeningTime(LocalDateTime.parse(newScreeningDTO.getMovieDate()))
+                .screeningTime(LocalDateTime.parse(newScreeningDTO.getScreeningDate()))
                 .movie(movieRepository.findMovieByTitle(newScreeningDTO.getMovieTitle()))
                 .seatState(ScreeningUtil.setNewSeatState(new ArrayList<>()))
                 .build();

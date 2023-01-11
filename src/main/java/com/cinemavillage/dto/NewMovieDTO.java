@@ -7,7 +7,8 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class NewScreeningDTO {
+public class NewMovieDTO {
     private String movieTitle;
-    private String screeningDate;
+    private int movieDuration;
+    private String movieDescription;
 }

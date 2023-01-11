@@ -1,7 +1,9 @@
 package com.cinemavillage.controller.api;
 
 import com.cinemavillage.controller.api.mapper.ScreeningMapper;
+import com.cinemavillage.dto.NewMovieDTO;
 import com.cinemavillage.dto.NewScreeningDTO;
+import com.cinemavillage.model.Screening;
 import com.cinemavillage.service.AdminService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +18,7 @@ public class AdminController {
     private final ScreeningMapper screeningMapper;
 
     @PostMapping("/add/screening")
-    public ResponseEntity<?> addScreening(@RequestBody NewScreeningDTO newScreeningDTO) {
+    public ResponseEntity<Screening> addScreening(@RequestBody NewScreeningDTO newScreeningDTO) {
         return adminService.addScreening(screeningMapper.mapScreeningDTOToScreening(newScreeningDTO));
     }
 
@@ -31,7 +33,7 @@ public class AdminController {
     }
 
     @PostMapping("/add/movie")
-    public ResponseEntity<?> addMovie() {
+    public ResponseEntity<?> addMovie(@RequestBody NewMovieDTO newMovieDTO) {
         return adminService.addMovie();
     }
 
