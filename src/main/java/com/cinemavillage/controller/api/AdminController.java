@@ -6,6 +6,7 @@ import com.cinemavillage.dto.NewScreeningDTO;
 import com.cinemavillage.model.Screening;
 import com.cinemavillage.service.AdminService;
 import lombok.AllArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,8 +24,8 @@ public class AdminController {
     }
 
     @DeleteMapping("/delete/screening")
-    public ResponseEntity<?> deleteScreening() {
-        return adminService.deleteScreening();
+    public ResponseEntity<?> deleteScreening(@RequestParam ObjectId id) {
+        return adminService.deleteScreening(id);
     }
 
     @PutMapping("/update/screening")

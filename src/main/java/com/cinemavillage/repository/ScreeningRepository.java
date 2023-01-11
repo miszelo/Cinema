@@ -18,4 +18,6 @@ public interface ScreeningRepository extends MongoRepository<Screening, ObjectId
     @Query("{'screeningMovieName.movieTitle': ?0, 'screeningTime': {'$date': ?1}}")
     Screening findScreeningByMovieTitleAndScreeningTime(String movieTitle, LocalDateTime screeningTime);
 
+    Screening findScreeningById(ObjectId id);
+
 }
