@@ -13,4 +13,6 @@ public interface MovieRepository extends MongoRepository<Movie, ObjectId> {
     List<Movie> findAll();
 
     Movie findMovieByTitle(String title);
+
+    boolean existsByTitle(String title);
 }

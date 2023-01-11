@@ -1,6 +1,8 @@
 package com.cinemavillage.service;
 
+import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.Screening;
+import com.cinemavillage.repository.MovieRepository;
 import com.cinemavillage.repository.ScreeningRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 public class AdminService {
 
     private final ScreeningRepository screeningRepository;
+    private final MovieRepository movieRepository;
 
     public ResponseEntity<Screening> addScreening(Screening screening) {
         if (screening.getMovie() == null) {
@@ -31,8 +34,12 @@ public class AdminService {
         return null;
     }
 
-    public ResponseEntity<?> addMovie() {
-        return null;
+    public ResponseEntity<Movie> addMovie(Movie movie) {
+        if (movieRepository.existsByTitle(movie.getTitle())) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        movieRepository.save(movie);
+        return ResponseEntity.ok(movie);
     }
 
     public ResponseEntity<?> deleteMovie() {
