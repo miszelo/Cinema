@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CYCE</title>
+    <title>CinemaVillage ${movieTitle}</title>
     <link rel="stylesheet" href="/static/hallLay.css">
 
 </head>

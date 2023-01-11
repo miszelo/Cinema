@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>cyce</title>
+    <title>CinemaVillage</title>
     <link rel="stylesheet" href="/static/homePage.css">
 </head>
 <body>
