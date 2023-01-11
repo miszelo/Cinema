@@ -5,6 +5,7 @@ import com.cinemavillage.model.Screening;
 import com.cinemavillage.repository.MovieRepository;
 import com.cinemavillage.repository.ScreeningRepository;
 import lombok.AllArgsConstructor;
+import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -24,8 +25,9 @@ public class AdminService {
         return ResponseEntity.ok(screening);
     }
 
-    public ResponseEntity<?> deleteScreening() {
-        return null;
+    public ResponseEntity<?> deleteScreening(ObjectId id) {
+        screeningRepository.delete(screeningRepository.findScreeningById(id));
+        return ResponseEntity.ok("Deleted");
     }
 
     public ResponseEntity<?> updateScreening() {
