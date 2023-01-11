@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>cyce</title>
     <link rel="stylesheet" href="/static/homePage.css">
 </head>
 <body>
