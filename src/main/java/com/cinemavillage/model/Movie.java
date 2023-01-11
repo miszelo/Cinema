@@ -16,16 +16,16 @@ public class Movie {
 
     @Id
     @Field("movieID")
-    ObjectId id;
+    private ObjectId id;
 
     @Field("movieTitle")
-    String title;
+    private String title;
 
     @Field("movieDuration")
-    int duration;
+    private int duration;
 
     @Field("movieDescription")
-    String description;
+    private String description;
 
     public Movie(String title, int duration, String description) {
         this.title = title;

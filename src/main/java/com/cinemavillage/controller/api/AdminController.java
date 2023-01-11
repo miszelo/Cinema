@@ -1,5 +1,7 @@
 package com.cinemavillage.controller.api;
 
+import com.cinemavillage.controller.api.mapper.ScreeningMapper;
+import com.cinemavillage.dto.NewScreeningDTO;
 import com.cinemavillage.service.AdminService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -11,10 +13,11 @@ import org.springframework.web.bind.annotation.*;
 public class AdminController {
 
     private final AdminService adminService;
+    private final ScreeningMapper screeningMapper;
 
     @PostMapping("/add/screening")
-    public ResponseEntity<?> addScreening() {
-        return adminService.addScreening();
+    public ResponseEntity<?> addScreening(@RequestBody NewScreeningDTO newScreeningDTO) {
+        return adminService.addScreening(screeningMapper.mapScreeningDTOToScreening(newScreeningDTO));
     }
 
     @DeleteMapping("/delete/screening")

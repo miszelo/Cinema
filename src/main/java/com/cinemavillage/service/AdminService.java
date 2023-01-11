@@ -1,5 +1,7 @@
 package com.cinemavillage.service;
 
+import com.cinemavillage.model.Screening;
+import com.cinemavillage.repository.ScreeningRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -8,8 +10,11 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class AdminService {
 
-    public ResponseEntity<?> addScreening() {
-        return null;
+    private final ScreeningRepository screeningRepository;
+
+    public ResponseEntity<?> addScreening(Screening screening) {
+        screeningRepository.save(screening);
+        return ResponseEntity.ok(screening);
     }
 
     public ResponseEntity<?> deleteScreening() {
