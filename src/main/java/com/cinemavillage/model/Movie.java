@@ -27,9 +27,4 @@ public class Movie {
     @Field("movieDescription")
     private String description;
 
-    public Movie(String title, int duration, String description) {
-        this.title = title;
-        this.duration = duration;
-        this.description = description;
-    }
 }

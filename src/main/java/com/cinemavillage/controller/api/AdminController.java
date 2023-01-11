@@ -1,8 +1,10 @@
 package com.cinemavillage.controller.api;
 
+import com.cinemavillage.controller.api.mapper.MovieMapper;
 import com.cinemavillage.controller.api.mapper.ScreeningMapper;
 import com.cinemavillage.dto.NewMovieDTO;
 import com.cinemavillage.dto.NewScreeningDTO;
+import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.Screening;
 import com.cinemavillage.service.AdminService;
 import lombok.AllArgsConstructor;
@@ -16,6 +18,8 @@ public class AdminController {
 
     private final AdminService adminService;
     private final ScreeningMapper screeningMapper;
+
+    private final MovieMapper movieMapper;
 
     @PostMapping("/add/screening")
     public ResponseEntity<Screening> addScreening(@RequestBody NewScreeningDTO newScreeningDTO) {
@@ -33,8 +37,8 @@ public class AdminController {
     }
 
     @PostMapping("/add/movie")
-    public ResponseEntity<?> addMovie(@RequestBody NewMovieDTO newMovieDTO) {
-        return adminService.addMovie();
+    public ResponseEntity<Movie> addMovie(@RequestBody NewMovieDTO newMovieDTO) {
+        return adminService.addMovie(movieMapper.mapMovieDTOToMovie(newMovieDTO));
     }
 
     @DeleteMapping("/delete/movie")
