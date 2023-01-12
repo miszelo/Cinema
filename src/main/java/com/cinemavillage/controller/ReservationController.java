@@ -18,8 +18,8 @@ public class ReservationController {
     private final ReservationService reservationService;
 
     @PutMapping("/reserve")
-    public void reserve(@AuthenticationPrincipal UserDetailsImpl userDetails,
-                        @RequestBody ReservationDTO reservationDTO) {
+    public void reserve(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestBody ReservationDTO reservationDTO) {
         reservationService.reserve(userDetails, reservationDTO);
+
     }
 }

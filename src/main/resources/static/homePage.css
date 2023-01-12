@@ -4,7 +4,7 @@ body {
 .movieContainer {
     display: flex;
     border: solid #982047;
-    max-width: 45vw;
+    max-width: 65vw;
     border-radius: 30px;
     min-width: 900px;
 }
@@ -21,6 +21,14 @@ body {
     font-weight: 700;
     padding: 20px;
     width: 70%;
+    flex: 1;
+}
+.buttons {
+    margin: 0px 15px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .title {
