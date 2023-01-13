@@ -28,6 +28,9 @@ public class ReservationService {
     private final UserRepository userRepository;
 
     public void reserve(UserDetailsImpl userDetails, ReservationDTO reservationDTO) {
+        if (userDetails == null) {
+            throw new UserNotFoundException();
+        }
         User user = userRepository.findByEmailIgnoreCase(userDetails.getUsername())
                 .orElseThrow(UserNotFoundException::new);
 

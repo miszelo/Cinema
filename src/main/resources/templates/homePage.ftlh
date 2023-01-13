@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CinemaVillage</title>
     <link rel="stylesheet" href="/static/homePage.css">
 </head>
 <body>
 <div class="topnav">
     <a class="active" href="/home">Home</a>
     <a href="/logout">Log out</a>
-    <input type="date" id="date" value=${date}>
+    <input type="date" id="date" class="date" value=${date}>
 </div>
 <br>
 <div class="listBox">
@@ -27,11 +27,14 @@
                             <p class="title"><b>${m.title}</b></p>
                             <p class="description"><i>${m.description}</i></p>
                         </div>
-                        <#list screenings as s>
-                            <#if s.movie.title==m.title>
-                                <button class="pickBtn effect" id="${date}_${s.screeningTime.toLocalTime()}_${s.movie.title}" onclick="goToScreening(this)">${s.screeningTime.toLocalTime()}</button>
-                            </#if>
-                        </#list>
+                        <div class="buttons">
+                            <#list screenings as s>
+                                <#if s.movie.title==m.title>
+                                    <button class="pickBtn effect" id="${date}_${s.screeningTime.toLocalTime()}_${s.movie.title}" onclick="goToScreening(this)">${s.screeningTime.toLocalTime()}</button>
+                                </#if>
+                            </#list>
+                        </div>
+
                     </div>
                     <br>
                 </#if>

@@ -27,7 +27,7 @@ public class AdminService {
 
     public ResponseEntity<?> deleteScreening(ObjectId id) {
         screeningRepository.delete(screeningRepository.findScreeningById(id));
-        return ResponseEntity.ok("Deleted");
+        return ResponseEntity.ok("Deleted screening id: " + id);
     }
 
     public ResponseEntity<?> updateScreening() {
