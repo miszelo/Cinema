@@ -4,6 +4,7 @@ import com.cinemavillage.dto.ReservationDTO;
 import com.cinemavillage.security.config.UserDetailsImpl;
 import com.cinemavillage.service.ReservationService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
