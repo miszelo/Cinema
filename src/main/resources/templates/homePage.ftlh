@@ -9,6 +9,8 @@
 <div class="topnav">
     <a class="active" href="/home">Home</a>
     <a href="/logout">Log out</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
     <input type="date" id="date" class="date" value=${date}>
 </div>
 <br>
