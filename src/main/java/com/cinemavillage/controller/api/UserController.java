@@ -26,7 +26,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/get/tickets")
-    public List<Ticket> getTickets(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+    public ResponseEntity<List<Ticket>> getTickets(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         return userService.getTickets(userDetails);
     }
 

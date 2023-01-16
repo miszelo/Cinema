@@ -1,7 +1,7 @@
 package com.cinemavillage.service;
 
 import com.cinemavillage.dto.ReservationDTO;
-import com.cinemavillage.exception.userException.UserNotFoundException;
+import com.cinemavillage.exception.user.UserNotFoundException;
 import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.Screening;
 import com.cinemavillage.model.Ticket;
@@ -44,7 +44,9 @@ public class ReservationService {
         Ticket ticket = Ticket.builder()
                 .userEmail(user.getEmail())
                 .movieName(movie.getTitle())
+                .movieDate(screeningTime)
                 .seats(reservationDTO.getSeats())
+                .ticketCode(user.getEmail().hashCode() + screeningTime.toString())
                 .build();
 
         if (user.getTickets() == null) {

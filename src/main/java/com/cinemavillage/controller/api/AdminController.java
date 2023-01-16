@@ -6,6 +6,7 @@ import com.cinemavillage.dto.NewMovieDTO;
 import com.cinemavillage.dto.NewScreeningDTO;
 import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.Screening;
+import com.cinemavillage.model.user.Role;
 import com.cinemavillage.repository.ScreeningRepository;
 import com.cinemavillage.service.AdminService;
 import lombok.AllArgsConstructor;
@@ -58,8 +59,8 @@ public class AdminController {
     }
 
     @DeleteMapping("/delete/movie")
-    public ResponseEntity<?> deleteMovie() {
-        return adminService.deleteMovie();
+    public ResponseEntity<?> deleteMovie(@RequestParam String title) {
+        return adminService.deleteMovie(title);
     }
 
     @PutMapping("/update/movie")
@@ -68,13 +69,13 @@ public class AdminController {
     }
 
     @DeleteMapping("/delete/user")
-    public ResponseEntity<?> deleteUser() {
-        return adminService.deleteUser();
+    public ResponseEntity<?> deleteUser(@RequestParam String userEmail) {
+        return adminService.deleteUser(userEmail);
     }
 
     @PutMapping("/update/user/role")
-    public ResponseEntity<?> updateUsersRole() {
-        return adminService.updateUsersRole();
+    public ResponseEntity<?> updateUsersRole(@RequestParam String userEmail, @RequestParam Role role) {
+        return adminService.updateUsersRole(userEmail, role);
     }
 
     @DeleteMapping("/delete/ticket")

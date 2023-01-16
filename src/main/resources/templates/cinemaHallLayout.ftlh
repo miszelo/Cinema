@@ -223,17 +223,6 @@
             "movieTitle" : "${movieTitle}"
         }
 
-        // async function fetchSeatsJSON() {
-        //     const response = await fetch('/book/reserve');
-        //     const seats = await response.json();
-        //     console.log(seats);
-        //     return seats;
-        // }
-        // fetchSeatsJSON().then(movies => {
-        //     movies; // fetched movies
-        // });
-
-
         let xhr = new XMLHttpRequest();
         let url = "/book/reserve";
         xhr.open("PUT", url, true);

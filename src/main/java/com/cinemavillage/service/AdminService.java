@@ -1,9 +1,13 @@
 package com.cinemavillage.service;
 
+import com.cinemavillage.exception.user.UserNotFoundException;
 import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.Screening;
+import com.cinemavillage.model.user.Role;
+import com.cinemavillage.model.user.User;
 import com.cinemavillage.repository.MovieRepository;
 import com.cinemavillage.repository.ScreeningRepository;
+import com.cinemavillage.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
@@ -20,6 +24,7 @@ public class AdminService {
 
     private final ScreeningRepository screeningRepository;
     private final MovieRepository movieRepository;
+    private UserRepository userRepository;
 
     public ResponseEntity<Screening> addScreening(Screening screening) {
         if (screening.getMovie() == null) {
@@ -46,20 +51,28 @@ public class AdminService {
         return ResponseEntity.ok(movie);
     }
 
-    public ResponseEntity<?> deleteMovie() {
-        return null;
+    public ResponseEntity<?> deleteMovie(String title) {
+        movieRepository.delete(movieRepository.findMovieByTitle(title));
+        return ResponseEntity.ok("Deleted movie: " + title);
     }
 
     public ResponseEntity<?> updateMovie() {
         return null;
     }
 
-    public ResponseEntity<?> deleteUser() {
-        return null;
+    public ResponseEntity<?> deleteUser(String email) {
+        User user = userRepository.findByEmailIgnoreCase(email)
+                .orElseThrow(UserNotFoundException::new);
+        userRepository.delete(user);
+        return ResponseEntity.ok("Deleted user: " + email);
     }
 
-    public ResponseEntity<?> updateUsersRole() {
-        return null;
+    public ResponseEntity<?> updateUsersRole(String userEmail, Role role) {
+        User user = userRepository.findByEmailIgnoreCase(userEmail)
+                .orElseThrow(UserNotFoundException::new);
+        user.setRole(role);
+        userRepository.save(user);
+        return ResponseEntity.ok("User: " + userEmail + " has now role: " + role);
     }
 
     public ResponseEntity<?> deleteTicket() {
