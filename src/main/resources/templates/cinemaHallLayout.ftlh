@@ -222,17 +222,35 @@
             "movieTitle" : "${movieTitle}"
         }
 
+        // async function fetchSeatsJSON() {
+        //     const response = await fetch('/book/reserve');
+        //     const seats = await response.json();
+        //     console.log(seats);
+        //     return seats;
+        // }
+        // fetchSeatsJSON().then(movies => {
+        //     movies; // fetched movies
+        // });
+
+
         let xhr = new XMLHttpRequest();
         let url = "/book/reserve";
         xhr.open("PUT", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(reservationDetails));
+        if (xhr.status === 200) {
+            alert('Success');
+            window.location.href = '/home';
+        } else {
+            alert("Proszę, zaloguj się")
+        }
 
         $(".active").addClass('taken');
         console.log(newArr);
         console.log("${date}");
         console.log("${movieTitle}");
         $(".active").toggleClass('active');
+
 
     });
 </script>
