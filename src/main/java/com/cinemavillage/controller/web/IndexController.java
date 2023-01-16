@@ -34,6 +34,7 @@ public class IndexController {
     @RequestMapping(value = {"/home/{date}", "/home", "/"}, method = RequestMethod.GET)
     public String homePage(Model model, @PathVariable Optional<String> date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        model.addAttribute("noScreenings", false);
         if (date.isPresent()) {
             LocalDate localDate = LocalDate.parse(date.get(), formatter);
             model.addAttribute("date", localDate);
@@ -43,6 +44,9 @@ public class IndexController {
                     .stream()
                     .sorted(Comparator.comparing(Screening::getScreeningTime))
                     .toList();
+            if (screenings.isEmpty()) {
+                model.addAttribute("noScreenings", true);
+            }
             model.addAttribute("screenings", screenings);
         } else {
             LocalDate localDate = LocalDate.now();
@@ -53,6 +57,9 @@ public class IndexController {
                     .stream()
                     .sorted(Comparator.comparing(Screening::getScreeningTime))
                     .toList();
+            if (screenings.isEmpty()) {
+                model.addAttribute("noScreenings", true);
+            }
             model.addAttribute("screenings", screenings);
         }
 

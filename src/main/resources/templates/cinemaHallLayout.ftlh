@@ -164,7 +164,7 @@
             <div class="seat" id="56"></div>
             <div class="seat" id="70"></div>
             <div class="seat" id="84"></div>
-            <div class="seat" id="98" ></div>
+            <div class="seat" id="98"></div>
         </div>
     </div>
 
@@ -204,7 +204,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="application/javascript">
     $('.cinema-seats .seat').on('click', function () {
-        if (!$(this).hasClass('taken') && $(this).attr('id') !== undefined){
+        if (!$(this).hasClass('taken') && $(this).attr('id') !== undefined) {
             $(this).toggleClass('active');
         }
     });
@@ -214,13 +214,13 @@
 
         let arr = $(".active").toArray();
         let newArr = [];
-        $.each(arr, function (){
+        $.each(arr, function () {
             newArr.push($(this).attr("id"))
         });
         const reservationDetails = {
-            "seats" : newArr,
-            "movieDate" : "${date}",
-            "movieTitle" : "${movieTitle}"
+            "seats": newArr,
+            "movieDate": "${date}",
+            "movieTitle": "${movieTitle}"
         }
 
         let xhr = new XMLHttpRequest();
@@ -229,13 +229,15 @@
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(reservationDetails));
 
+
         $(".active").addClass('taken');
         console.log(newArr);
         console.log("${date}");
         console.log("${movieTitle}");
         $(".active").toggleClass('active');
 
-    });
+    })
+    ;
 </script>
 
 

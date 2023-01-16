@@ -13,6 +13,8 @@
     <input id="userEmail" type="email" name="userEmail" placeholder="E-mail">
     <input id="userPassword" type="password" name="userPassword" placeholder="Password">
     <input type="submit" value="Zarejestruj"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </form>
 
 <script>
