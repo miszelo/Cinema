@@ -8,6 +8,8 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.util.List;
+
 @Document
 @Getter
 @Setter
@@ -20,15 +22,12 @@ public class Ticket {
     @Field(name = "ticketID")
     private ObjectId id;
 
-    @Field(name = "ticketUser")
-    @DBRef
-    private User user;
+    @Field(name = "userEmail")
+    private String userEmail;
 
-    @Field(name = "ticketMovie")
-    @DBRef
-    private Movie movie;
+    @Field(name = "movieName")
+    private String movieName;
 
-    @Field(name = "ticketScreening")
-    @DBRef
-    private Screening screening;
+    @Field(name = "seats")
+    private List<Integer> seats;
 }

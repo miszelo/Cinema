@@ -6,6 +6,7 @@ import com.cinemavillage.dto.NewMovieDTO;
 import com.cinemavillage.dto.NewScreeningDTO;
 import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.Screening;
+import com.cinemavillage.repository.ScreeningRepository;
 import com.cinemavillage.service.AdminService;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
@@ -13,8 +14,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Admin controler, these are the endpoints that enable the administrator to modify state of screenings, movies, user roles and tickets
+ *
  * @author Mikos Jakub, Kawczak Michał
  * @see SpringApplication
  */
@@ -25,8 +29,13 @@ public class AdminController {
 
     private final AdminService adminService;
     private final ScreeningMapper screeningMapper;
-
+    private final ScreeningRepository screeningRepository;
     private final MovieMapper movieMapper;
+
+    @GetMapping("/get/screenings")
+    public List<Screening> getScreenings() {
+        return screeningRepository.findAll();
+    }
 
     @PostMapping("/add/screening")
     public ResponseEntity<Screening> addScreening(@RequestBody NewScreeningDTO newScreeningDTO) {

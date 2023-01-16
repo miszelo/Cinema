@@ -42,9 +42,9 @@ public class ReservationService {
                 screeningTime);
 
         Ticket ticket = Ticket.builder()
-                .user(user)
-                .movie(movie)
-                .screening(screening)
+                .userEmail(user.getEmail())
+                .movieName(movie.getTitle())
+                .seats(reservationDTO.getSeats())
                 .build();
 
         if (user.getTickets() == null) {
