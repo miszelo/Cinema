@@ -9,9 +9,15 @@ import com.cinemavillage.model.Screening;
 import com.cinemavillage.service.AdminService;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
+import org.springframework.boot.SpringApplication;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * Admin controler, these are the endpoints that enable the administrator to modify state of screenings, movies, user roles and tickets
+ * @author Mikos Jakub, Kawczak Michał
+ * @see SpringApplication
+ */
 @RestController
 @AllArgsConstructor
 @RequestMapping("/admin")

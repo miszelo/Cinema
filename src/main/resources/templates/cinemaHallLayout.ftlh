@@ -252,7 +252,6 @@
         console.log("${movieTitle}");
         $(".active").toggleClass('active');
 
-
     });
 </script>
 
