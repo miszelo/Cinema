@@ -4,7 +4,7 @@ body {
 .movieContainer {
     display: flex;
     border: solid #982047;
-    max-width: 45vw;
+    max-width: 65vw;
     border-radius: 30px;
     min-width: 900px;
 }
@@ -21,7 +21,14 @@ body {
     font-weight: 700;
     padding: 20px;
     width: 70%;
-    min-width: 600px;
+    flex: 1;
+}
+.buttons {
+    margin: 0px 15px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 .title {
@@ -34,13 +41,18 @@ body {
 }
 
 .topnav {
-    border: solid #9ecaed;
+    border: solid #4d1326;
     overflow: hidden;
     font-size: 1rem;
     font-family: 'Montserrat', sans-serif;
     justify-content: center;
+    min-width: 600px;
 }
-
+.date {
+    position: absolute;
+    right: 0%;
+    margin: 0% 11px;
+}
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
@@ -66,7 +78,7 @@ body {
 
 /* Add a color to the active/current link */
 .topnav a.active {
-    background-color: #982047;
+    background-color: #5d011d;
     color: white;
 }
 .movieList {

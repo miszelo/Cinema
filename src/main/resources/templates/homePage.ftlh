@@ -27,11 +27,14 @@
                             <p class="title"><b>${m.title}</b></p>
                             <p class="description"><i>${m.description}</i></p>
                         </div>
-                        <#list screenings as s>
-                            <#if s.movie.title==m.title>
-                                <button class="pickBtn effect" id="${date}_${s.screeningTime.toLocalTime()}_${s.movie.title}" onclick="goToScreening(this)">${s.screeningTime.toLocalTime()}</button>
-                            </#if>
-                        </#list>
+                        <div class="buttons">
+                            <#list screenings as s>
+                                <#if s.movie.title==m.title>
+                                    <button class="pickBtn effect" id="${date}_${s.screeningTime.toLocalTime()}_${s.movie.title}" onclick="goToScreening(this)">${s.screeningTime.toLocalTime()}</button>
+                                </#if>
+                            </#list>
+                        </div>
+
                     </div>
                     <br>
                 </#if>
