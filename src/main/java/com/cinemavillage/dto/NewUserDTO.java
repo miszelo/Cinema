@@ -4,6 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+/**
+ * Helper class for Data Transfer Object. This class is used only for easier communication with database
+ * @author Michal Kawczak, Jakub Mikos
+ */
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
