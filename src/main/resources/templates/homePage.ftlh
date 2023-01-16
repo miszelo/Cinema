@@ -40,7 +40,6 @@
                                 </#if>
                             </#list>
                         </div>
-
                     </div>
                     <br>
                 </#if>

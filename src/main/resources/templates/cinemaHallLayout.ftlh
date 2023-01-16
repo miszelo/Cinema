@@ -164,7 +164,7 @@
             <div class="seat" id="56"></div>
             <div class="seat" id="70"></div>
             <div class="seat" id="84"></div>
-            <div class="seat" id="98"></div>
+            <div class="seat" id="98" ></div>
         </div>
     </div>
 
@@ -204,7 +204,7 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="application/javascript">
     $('.cinema-seats .seat').on('click', function () {
-        if (!$(this).hasClass('taken') && $(this).attr('id') !== undefined) {
+        if (!$(this).hasClass('taken') && $(this).attr('id') !== undefined){
             $(this).toggleClass('active');
         }
     });
@@ -214,21 +214,37 @@
 
         let arr = $(".active").toArray();
         let newArr = [];
-        $.each(arr, function () {
+        $.each(arr, function (){
             newArr.push($(this).attr("id"))
         });
         const reservationDetails = {
-            "seats": newArr,
-            "movieDate": "${date}",
-            "movieTitle": "${movieTitle}"
+            "seats" : newArr,
+            "movieDate" : "${date}",
+            "movieTitle" : "${movieTitle}"
         }
+
+        // async function fetchSeatsJSON() {
+        //     const response = await fetch('/book/reserve');
+        //     const seats = await response.json();
+        //     console.log(seats);
+        //     return seats;
+        // }
+        // fetchSeatsJSON().then(movies => {
+        //     movies; // fetched movies
+        // });
+
 
         let xhr = new XMLHttpRequest();
         let url = "/book/reserve";
         xhr.open("PUT", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(reservationDetails));
-
+        if (xhr.status === 200) {
+            alert('Success');
+            window.location.href = '/home';
+        } else {
+            alert("Proszę, zaloguj się")
+        }
 
         $(".active").addClass('taken');
         console.log(newArr);
@@ -236,8 +252,7 @@
         console.log("${movieTitle}");
         $(".active").toggleClass('active');
 
-    })
-    ;
+    });
 </script>
 
 
