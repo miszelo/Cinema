@@ -5,6 +5,11 @@ import com.cinemavillage.model.Movie;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
+/**
+ * Mapper class to map DTO into entity or entity into DTO
+ * @author Michal Kawczak, Jakub Mikos
+ */
+
 @Component
 @AllArgsConstructor
 public class MovieMapper {

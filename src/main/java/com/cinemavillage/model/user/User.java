@@ -9,6 +9,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Set;
 
+/**
+ * Entity of user document in database
+ * @author Michal Kawczak, Jakub Mikos
+ */
+
 @Document
 @Getter
 @Setter

@@ -9,6 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * Repository to finding documents from database
+ * @author Michal Kawczak, Jakub Mikos
+ */
 
 @Repository
 public interface ScreeningRepository extends MongoRepository<Screening, ObjectId> {

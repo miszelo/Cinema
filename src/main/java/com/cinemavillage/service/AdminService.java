@@ -10,6 +10,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+/**
+ * Business logic of the project (this particular service supports the API for the administrator)
+ * @author Michal Kawczak, Jakub Mikos
+ */
 @Service
 @AllArgsConstructor
 public class AdminService {
