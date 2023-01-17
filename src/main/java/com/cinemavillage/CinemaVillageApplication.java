@@ -19,6 +19,7 @@ public class CinemaVillageApplication extends SpringBootServletInitializer {
     }
     public static void main(String[] args) {
         SpringApplication.run(CinemaVillageApplication.class, args);
+
     }
 
 }
