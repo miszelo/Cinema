@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Admin controler, these are the endpoints that enable the administrator to modify state of screenings, movies, user roles and tickets
+ * Admin controller, these are the endpoints that enable the administrator to modify state of screenings, movies, user roles and tickets
  *
  * @author Mikos Jakub, Kawczak Michał
  * @see SpringApplication

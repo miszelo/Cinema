@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * User controler, these are the endpoints that enable the user to get his tickets, change his password and cancel ticket reservation
+ * User controller, these are the endpoints that enable the user to get his tickets, change his password and cancel ticket reservation
  * @author Mikos Jakub, Kawczak Michał
  * @see SpringApplication
  */
