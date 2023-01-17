@@ -5,15 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/register.css">
-    <title>Document</title>
+    <title>Registration Page</title>
 </head>
 <body>
-<div class="text">REJESTRACJA</div>
-<form class="input" method="POST" action="/register">
-    <input id="userEmail" type="email" name="userEmail" placeholder="E-mail">
-    <input id="userPassword" type="password" name="userPassword" placeholder="Password">
-    <input type="submit" value="Zarejestruj"/>
-</form>
+<div class="container">
+    <h1 class="title">Registration</h1>
+    <form class="form" method="POST" action="/register">
+        <div class="form-control">
+            <label for="userEmail">Email:</label>
+            <input id="userEmail" type="email" name="userEmail" placeholder="Enter email">
+        </div>
+        <div class="form-control">
+            <label for="userPassword">Password:</label>
+            <input id="userPassword" type="password" name="userPassword" placeholder="Enter password">
+        </div>
+        <div class="form-control">
+            <input type="submit" value="Register"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
 
 <script>
     window.addEventListener("submit", async function registerUser(event) {
@@ -39,6 +51,3 @@
         })
     })
 </script>
-
-</body>
-</html>

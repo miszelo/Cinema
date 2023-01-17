@@ -1,10 +1,12 @@
 package com.cinemavillage.security.config;
 
+import com.cinemavillage.model.user.Role;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -25,9 +27,17 @@ public class SecurityConfig {
                 .csrf().disable()
                 .headers().frameOptions().disable()
                 .and()
-                .authorizeRequests(auth -> auth.anyRequest().permitAll())
-                .formLogin()
-                .defaultSuccessUrl("/home", true);
+                .authorizeRequests((auth) -> {
+                    auth.antMatchers("/register").permitAll();
+                    auth.antMatchers("/home/**", "/").permitAll();
+                    auth.antMatchers("/admin/**").hasAuthority(Role.ADMIN.name());
+                    auth.antMatchers("/user/**").hasAuthority(Role.USER.name());
+                    auth.antMatchers("/book/reserve").authenticated();
+                })
+                .formLogin((form) -> form
+                        .defaultSuccessUrl("/home", true)
+                        .permitAll())
+                .logout(LogoutConfigurer::permitAll);
         return http.build();
     }
 

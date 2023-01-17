@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -34,32 +33,33 @@ public class IndexController {
     @RequestMapping(value = {"/home/{date}", "/home", "/"}, method = RequestMethod.GET)
     public String homePage(Model model, @PathVariable Optional<String> date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        model.addAttribute("noScreenings", false);
+        LocalDate localDate;
         if (date.isPresent()) {
-            LocalDate localDate = LocalDate.parse(date.get(), formatter);
-            model.addAttribute("date", localDate);
-            List<Screening> screenings = screeningRepository.findScreeningsByScreeningTimeBetween(
-                            LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),
-                            LocalDateTime.of(localDate, LocalTime.parse("23:59:00")))
-                    .stream()
-                    .sorted(Comparator.comparing(Screening::getScreeningTime))
-                    .toList();
-            model.addAttribute("screenings", screenings);
+            localDate = LocalDate.parse(date.get(), formatter);
         } else {
-            LocalDate localDate = LocalDate.now();
-            model.addAttribute("date", localDate);
-            List<Screening> screenings = screeningRepository.findScreeningsByScreeningTimeBetween(
-                            LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),
-                            LocalDateTime.of(localDate, LocalTime.parse("23:59:00")))
-                    .stream()
-                    .sorted(Comparator.comparing(Screening::getScreeningTime))
-                    .toList();
-            model.addAttribute("screenings", screenings);
+            localDate = LocalDate.now();
         }
+        addDateToModel(model, localDate);
 
         List<Movie> movies = movieRepository.findAll();
         model.addAttribute("movies", movies);
         model.addAttribute("today", LocalDateTime.now().truncatedTo(ChronoUnit.DAYS));
         return HOME_PAGE;
+    }
+
+    private void addDateToModel(Model model, LocalDate localDate) {
+        model.addAttribute("date", localDate);
+        List<Screening> screenings = screeningRepository.findScreeningsByScreeningTimeBetween(
+                        LocalDateTime.of(localDate, LocalTime.parse("00:00:00")),
+                        LocalDateTime.of(localDate, LocalTime.parse("23:59:00")))
+                .stream()
+                .sorted(Comparator.comparing(Screening::getScreeningTime))
+                .toList();
+        if (screenings.isEmpty()) {
+            model.addAttribute("noScreenings", true);
+        }
+        model.addAttribute("screenings", screenings);
     }
 
     @RequestMapping(value = {"/book/{date}/{movieTitle}"}, method = RequestMethod.GET)

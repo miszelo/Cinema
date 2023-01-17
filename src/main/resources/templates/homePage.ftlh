@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <title>CinemaVillage</title>
     <link rel="stylesheet" href="/static/homePage.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <div class="topnav">
     <a class="active" href="/home">Home</a>
     <a href="/logout">Log out</a>
+    <a href="/login">Login</a>
+    <a href="/register">Register</a>
     <input type="date" id="date" class="date" value=${date}>
 </div>
 <br>
 <div class="listBox">
     <div class="movieList">
+        <#if noScreenings>
+            <div class="noMov">Nie ma filmów tego dnia</div>
+        </#if>
         <#assign movie = []>
         <#list screenings as ss>
             <#assign mov = ss.movie.title>
@@ -25,7 +32,8 @@
                     <div class="movieContainer">
                         <div class="movieBox">
                             <p class="title"><b>${m.title}</b></p>
-                            <p class="description"><i>${m.description}</i></p>
+                            <p class="description">${m.description}</p>
+                            <p class="description">Czas trwania: ${m.duration} minut</p>
                         </div>
                         <div class="buttons">
                             <#list screenings as s>

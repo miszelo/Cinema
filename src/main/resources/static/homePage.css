@@ -3,7 +3,7 @@ body {
 }
 .movieContainer {
     display: flex;
-    border: solid #982047;
+    border: solid #4d1326;
     max-width: 65vw;
     border-radius: 30px;
     min-width: 900px;
@@ -22,6 +22,12 @@ body {
     padding: 20px;
     width: 70%;
     flex: 1;
+}
+.noMov {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #831339;
 }
 .buttons {
     margin: 0px 15px 0px 0px;
