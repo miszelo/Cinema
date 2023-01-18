@@ -1,7 +1,9 @@
 package com.cinemavillage.service;
 
 import com.cinemavillage.dto.ChangePasswordDTO;
+import com.cinemavillage.dto.DeleteTicketDTO;
 import com.cinemavillage.exception.PasswordIsTheSameException;
+import com.cinemavillage.exception.TicketNotFoundException;
 import com.cinemavillage.exception.UserWithoutTicketsException;
 import com.cinemavillage.exception.user.UserNotFoundException;
 import com.cinemavillage.model.Ticket;
@@ -39,10 +41,13 @@ public class UserService {
         }
         user.setPassword(bCryptPasswordEncoder.encode(changePasswordDTO.getNewPassword()));
         userRepository.save(user);
-        return null;
+        return ResponseEntity.ok("Password changed!");
     }
 
-    public ResponseEntity<?> deleteTicket() {
-        return null;
+    public ResponseEntity<?> deleteTicket(DeleteTicketDTO deleteTicketDTO) {
+        Ticket ticket = ticketRepository.findTicketByTicketCode(deleteTicketDTO.getTicketCode())
+                .orElseThrow(TicketNotFoundException::new);
+        ticketRepository.delete(ticket);
+        return ResponseEntity.ok("Ticket :" + ticket.getTicketCode() + " deleted!");
     }
 }

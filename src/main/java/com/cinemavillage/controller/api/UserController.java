@@ -2,6 +2,7 @@ package com.cinemavillage.controller.api;
 
 
 import com.cinemavillage.dto.ChangePasswordDTO;
+import com.cinemavillage.dto.DeleteTicketDTO;
 import com.cinemavillage.model.Ticket;
 import com.cinemavillage.security.config.UserDetailsImpl;
 import com.cinemavillage.service.UserService;
@@ -38,8 +39,8 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/ticket")
-    public ResponseEntity<?> deleteTicket() {
-        return userService.deleteTicket();
+    public ResponseEntity<?> deleteTicket(@AuthenticationPrincipal UserDetailsImpl userDetails, @RequestBody DeleteTicketDTO deleteTicketDTO) {
+        return userService.deleteTicket(deleteTicketDTO);
     }
 
 }

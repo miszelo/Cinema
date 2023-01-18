@@ -14,4 +14,6 @@ public interface TicketRepository extends MongoRepository<Ticket, ObjectId> {
 
     Optional<List<Ticket>> findTicketsByUserEmail(String userEmail);
     Optional<List<Ticket>> findTicketsByMovieNameAndMovieDate(String movieName, LocalDateTime movieDate);
+
+    Optional<Ticket> findTicketByTicketCode(String ticketCode);
 }
