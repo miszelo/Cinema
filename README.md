@@ -4,7 +4,7 @@ Projekt zaliczeniowy na przedmioty: Programowanie - JAVA, Bazy danych NoSQL i Bi
 ![image](https://user-images.githubusercontent.com/56031072/213288680-88dabf4c-d775-4f69-bc31-2d31703081d6.png)
 
 ### Login "/login"
-![image](https://user-images.githubusercontent.com/56031072/213281317-af61a157-f9bc-4929-99a3-bc9925d3fffa.png)
+![image](https://user-images.githubusercontent.com/56031072/213288799-69437ec8-5632-4a86-a7f9-c89e1ada5f22.png)
 
 ### Homepage "/home"
 ![image](https://user-images.githubusercontent.com/56031072/213281530-020f5956-2376-4db3-a358-1c703a4d13a8.png)
