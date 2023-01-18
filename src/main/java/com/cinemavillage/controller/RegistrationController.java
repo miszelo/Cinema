@@ -19,5 +19,10 @@ public class RegistrationController {
         return registrationService.register(newUserDTO);
     }
 
+    @GetMapping
+    public String register() {
+        return "register";
+    }
+
 
 }
