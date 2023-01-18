@@ -1,6 +1,7 @@
 # Cinema
 Projekt zaliczeniowy na przedmioty: Programowanie - JAVA, Bazy danych NoSQL i Big Data
 ### Registration "/register"
+![image](https://user-images.githubusercontent.com/56031072/213288618-e4f58b30-a882-4022-9fcd-4aa098163b21.png)
 
 ### Login "/login"
 ![image](https://user-images.githubusercontent.com/56031072/213281317-af61a157-f9bc-4929-99a3-bc9925d3fffa.png)
