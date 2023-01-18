@@ -228,17 +228,7 @@
         xhr.open("PUT", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(reservationDetails));
-        // if (xhr.status === 200) {
-        //     alert('Success');
-        //     window.location.href = '/home';
-        // } else {
-        //     alert("Proszę, zaloguj się")
-        // }
-
         $(".active").addClass('taken');
-        console.log(newArr);
-        console.log("${date}");
-        console.log("${movieTitle}");
         $(".active").toggleClass('active');
 
     });
