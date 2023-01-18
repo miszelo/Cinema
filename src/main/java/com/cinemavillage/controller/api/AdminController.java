@@ -2,6 +2,7 @@ package com.cinemavillage.controller.api;
 
 import com.cinemavillage.controller.api.mapper.MovieMapper;
 import com.cinemavillage.controller.api.mapper.ScreeningMapper;
+import com.cinemavillage.dto.ChangeScreeningTimeDTO;
 import com.cinemavillage.dto.NewMovieDTO;
 import com.cinemavillage.dto.NewScreeningDTO;
 import com.cinemavillage.model.Movie;
@@ -48,9 +49,9 @@ public class AdminController {
         return adminService.deleteScreening(id);
     }
 
-    @PutMapping("/update/screening")
-    public ResponseEntity<?> updateScreening() {
-        return adminService.updateScreening();
+    @PutMapping("/update/screening/date")
+    public ResponseEntity<?> updateScreeningDate(@RequestBody ChangeScreeningTimeDTO changeScreeningTimeDTO) {
+        return adminService.updateScreeningDate(changeScreeningTimeDTO);
     }
 
     @PostMapping("/add/movie")
@@ -63,11 +64,6 @@ public class AdminController {
         return adminService.deleteMovie(title);
     }
 
-    @PutMapping("/update/movie")
-    public ResponseEntity<?> updateMovie() {
-        return adminService.updateMovie();
-    }
-
     @DeleteMapping("/delete/user")
     public ResponseEntity<?> deleteUser(@RequestParam String userEmail) {
         return adminService.deleteUser(userEmail);
@@ -76,10 +72,5 @@ public class AdminController {
     @PutMapping("/update/user/role")
     public ResponseEntity<?> updateUsersRole(@RequestParam String userEmail, @RequestParam Role role) {
         return adminService.updateUsersRole(userEmail, role);
-    }
-
-    @DeleteMapping("/delete/ticket")
-    public ResponseEntity<?> deleteTicket() {
-        return adminService.deleteTicket();
     }
 }

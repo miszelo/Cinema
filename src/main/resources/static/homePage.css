@@ -1,5 +1,5 @@
 body {
-    background: rgba(0, 0, 0, 0.85);
+    background: rgba(0, 0, 0, 0.88);
 }
 .movieContainer {
     display: flex;
@@ -7,6 +7,7 @@ body {
     max-width: 65vw;
     border-radius: 30px;
     min-width: 900px;
+    background: #4d132669
 }
 .listBox {
     display: flex;
@@ -39,11 +40,12 @@ body {
 
 .title {
     font-size: 1.5rem;
-    color: #62bbff;
+    color: #ffffff;
+    font-style: italic;
 }
 .description {
     font-size: 1rem;
-    color: #b4d9ff;
+    color: #ffffffc4;
 }
 
 .topnav {
@@ -62,11 +64,11 @@ body {
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
-    color: #f2f2f2;
+    color: #e3f1ff;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 19px;
     justify-content: center;
     align-content: center;
 }
@@ -99,10 +101,10 @@ body {
 .pickBtn {
     box-sizing: border-box;
     appearance: none;
-    background-color: transparent;
+    background-color: #5d011da3;
     border: 2px solid #000000;
     border-radius: 0.6em;
-    color: #62bbff;
+    color: #ffffff;
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -113,11 +115,11 @@ body {
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
     font-weight: 700;
 }
 .pickBtn:hover, .pickBtn:focus {
-    color: rgba(55, 255, 238, 0.47);
+    color: #000000;
     outline: 0;
 }
 .effect {

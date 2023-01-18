@@ -1,6 +1,6 @@
 body {
     margin: 10px;
-    background: #111;
+    background: rgb(17, 17, 17);
     font-family: 'Montserrat', sans-serif;
 }
 .section {
@@ -16,7 +16,7 @@ body {
     height: 40vh;
     box-shadow: 0 0 5vh #9ecaed;
     font-size: 1.5rem;
-    color: #985a6f;
+    color: #bdbdbd;
     display: flex;
     align-content: flex-end;
     justify-content: center;
@@ -194,7 +194,7 @@ body {
     background-color: transparent;
     border: 2px solid rgb(77, 19, 38);
     border-radius: 0.6em;
-    color: rgba(55, 134, 255, 0.47);
+    color: #a4a4a4;
     cursor: pointer;
     display: flex;
     align-self: center;
@@ -209,7 +209,7 @@ body {
     font-weight: 700;
 }
 .reserveBtn:hover, .reserveBtn:focus {
-    color: rgba(12, 148, 255, 0.76);
+    color: rgba(169, 230, 255, 0.76);
     outline: 0;
 }
 .effect {
@@ -219,7 +219,7 @@ body {
     box-shadow: 0 0 40px 40px #4d1326 inset;
 }
 .text {
-    color: #9ecaed;
+    color: #414141;
     font-size: 1rem;
     text-decoration: none;
     text-align: center;

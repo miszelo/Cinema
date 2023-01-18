@@ -1,5 +1,6 @@
 package com.cinemavillage.controller.web;
 
+import com.cinemavillage.exception.ScreeningNotFoundException;
 import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.Screening;
 import com.cinemavillage.repository.MovieRepository;
@@ -65,7 +66,8 @@ public class IndexController {
     @RequestMapping(value = {"/book/{date}/{movieTitle}"}, method = RequestMethod.GET)
     public String getSeatView(Model model, @PathVariable String date, @PathVariable String movieTitle) {
         LocalDateTime screeningTime = LocalDateTime.parse(date);
-        Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(movieTitle, screeningTime);
+        Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(movieTitle, screeningTime)
+                .orElseThrow(ScreeningNotFoundException::new);
         model.addAttribute("seatState", screening.getSeatState());
         model.addAttribute("date", date);
         model.addAttribute("day", date.split("T")[0]);

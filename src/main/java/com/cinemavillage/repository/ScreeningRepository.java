@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Repository to finding documents from database
@@ -20,8 +21,8 @@ public interface ScreeningRepository extends MongoRepository<Screening, ObjectId
     List<Screening> findScreeningsByScreeningTimeBetween(LocalDateTime start, LocalDateTime end);
 
     @Query("{'screeningMovieName.movieTitle': ?0, 'screeningTime': {'$date': ?1}}")
-    Screening findScreeningByMovieTitleAndScreeningTime(String movieTitle, LocalDateTime screeningTime);
+    Optional<Screening> findScreeningByMovieTitleAndScreeningTime(String movieTitle, LocalDateTime screeningTime);
 
-    Screening findScreeningById(ObjectId id);
+    Optional<Screening> findScreeningById(ObjectId id);
 
 }

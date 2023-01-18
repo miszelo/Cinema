@@ -1,6 +1,7 @@
 package com.cinemavillage.controller.api.mapper;
 
 import com.cinemavillage.dto.NewScreeningDTO;
+import com.cinemavillage.exception.MovieNotFoundException;
 import com.cinemavillage.model.Screening;
 import com.cinemavillage.repository.MovieRepository;
 import com.cinemavillage.util.ScreeningUtil;
@@ -19,7 +20,8 @@ public class ScreeningMapper {
     public Screening mapScreeningDTOToScreening(NewScreeningDTO newScreeningDTO) {
         return Screening.builder()
                 .screeningTime(LocalDateTime.parse(newScreeningDTO.getScreeningDate()))
-                .movie(movieRepository.findMovieByTitle(newScreeningDTO.getMovieTitle()))
+                .movie(movieRepository.findMovieByTitle(newScreeningDTO.getMovieTitle())
+                        .orElseThrow(MovieNotFoundException::new))
                 .seatState(ScreeningUtil.setNewSeatState(new ArrayList<>()))
                 .build();
     }
