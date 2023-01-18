@@ -5,7 +5,7 @@ Projekt zaliczeniowy na przedmioty: Programowanie - JAVA, Bazy danych NoSQL i Bi
 ### Login "/login"
 ![image](https://user-images.githubusercontent.com/56031072/213281317-af61a157-f9bc-4929-99a3-bc9925d3fffa.png)
 
-### Homepage "home"
+### Homepage "/home"
 ![image](https://user-images.githubusercontent.com/56031072/213281530-020f5956-2376-4db3-a358-1c703a4d13a8.png)
 
 ### Cinema hall seats state for selected screening
@@ -14,5 +14,9 @@ Projekt zaliczeniowy na przedmioty: Programowanie - JAVA, Bazy danych NoSQL i Bi
 ### Already taken seats
 ![image](https://user-images.githubusercontent.com/56031072/213283575-18221964-5070-4662-87ca-1d2374d9d463.png)
 
+### Admin panel
+#### "/admin/get/screenings"
+![image](https://user-images.githubusercontent.com/56031072/213285686-f8f0f895-28fe-4d06-8126-d90d1b341e7b.png)
 
-
+#### "/admin/add/screening"
+![image](https://user-images.githubusercontent.com/56031072/213286038-f834e583-e1a0-4322-8901-616e5b04434e.png)
