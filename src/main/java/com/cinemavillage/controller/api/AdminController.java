@@ -2,6 +2,7 @@ package com.cinemavillage.controller.api;
 
 import com.cinemavillage.controller.api.mapper.MovieMapper;
 import com.cinemavillage.controller.api.mapper.ScreeningMapper;
+import com.cinemavillage.dto.ChangeScreeningTimeDTO;
 import com.cinemavillage.dto.NewMovieDTO;
 import com.cinemavillage.dto.NewScreeningDTO;
 import com.cinemavillage.model.Movie;
@@ -48,9 +49,9 @@ public class AdminController {
         return adminService.deleteScreening(id);
     }
 
-    @PutMapping("/update/screening")
-    public ResponseEntity<?> updateScreening() {
-        return adminService.updateScreening();
+    @PutMapping("/update/screening/date")
+    public ResponseEntity<?> updateScreeningDate(@RequestBody ChangeScreeningTimeDTO changeScreeningTimeDTO) {
+        return adminService.updateScreeningDate(changeScreeningTimeDTO);
     }
 
     @PostMapping("/add/movie")
