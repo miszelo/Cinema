@@ -39,7 +39,8 @@ public class SecurityConfig {
                         .permitAll())
                 .logout()
                 .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID");
+                .deleteCookies("JSESSIONID")
+                .permitAll();
         return http.build();
     }
 
