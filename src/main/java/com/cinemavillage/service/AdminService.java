@@ -1,6 +1,8 @@
 package com.cinemavillage.service;
 
 import com.cinemavillage.dto.ChangeScreeningTimeDTO;
+import com.cinemavillage.exception.MovieNotFoundException;
+import com.cinemavillage.exception.ScreeningNotFoundException;
 import com.cinemavillage.exception.TicketsNotFoundException;
 import com.cinemavillage.exception.user.UserNotFoundException;
 import com.cinemavillage.model.Movie;
@@ -44,7 +46,8 @@ public class AdminService {
     }
 
     public ResponseEntity<?> deleteScreening(ObjectId id) {
-        screeningRepository.delete(screeningRepository.findScreeningById(id));
+        screeningRepository.delete(screeningRepository.findScreeningById(id)
+                .orElseThrow(ScreeningNotFoundException::new));
         return ResponseEntity.ok("Deleted screening id: " + id);
     }
 
@@ -54,7 +57,8 @@ public class AdminService {
         Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(
                 changeScreeningTimeDTO.getMovieTitle(),
                 screeningTime
-        );
+        )
+                .orElseThrow(ScreeningNotFoundException::new);
         screening.setScreeningTime(newScreeningTime);
 
         List<Ticket> tickets = ticketRepository.findTicketsByMovieNameAndMovieDate(
@@ -75,6 +79,8 @@ public class AdminService {
                 screening.getScreeningTime());
     }
 
+
+
     public ResponseEntity<Movie> addMovie(Movie movie) {
         if (movieRepository.existsByTitle(movie.getTitle())) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -84,12 +90,9 @@ public class AdminService {
     }
 
     public ResponseEntity<?> deleteMovie(String title) {
-        movieRepository.delete(movieRepository.findMovieByTitle(title));
+        movieRepository.delete(movieRepository.findMovieByTitle(title)
+                .orElseThrow(MovieNotFoundException::new));
         return ResponseEntity.ok("Deleted movie: " + title);
-    }
-
-    public ResponseEntity<?> updateMovie() {
-        return null;
     }
 
     public ResponseEntity<?> deleteUser(String email) {
@@ -105,9 +108,5 @@ public class AdminService {
         user.setRole(role);
         userRepository.save(user);
         return ResponseEntity.ok("User: " + userEmail + " has now role: " + role);
-    }
-
-    public ResponseEntity<?> deleteTicket() {
-        return null;
     }
 }

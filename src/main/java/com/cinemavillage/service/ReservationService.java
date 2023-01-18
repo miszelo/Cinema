@@ -1,6 +1,8 @@
 package com.cinemavillage.service;
 
 import com.cinemavillage.dto.ReservationDTO;
+import com.cinemavillage.exception.MovieNotFoundException;
+import com.cinemavillage.exception.ScreeningNotFoundException;
 import com.cinemavillage.exception.user.UserNotFoundException;
 import com.cinemavillage.model.Movie;
 import com.cinemavillage.model.Screening;
@@ -35,12 +37,14 @@ public class ReservationService {
         User user = userRepository.findByEmailIgnoreCase(userDetails.getUsername())
                 .orElseThrow(UserNotFoundException::new);
 
-        Movie movie = movieRepository.findMovieByTitle(reservationDTO.getMovieTitle());
+        Movie movie = movieRepository.findMovieByTitle(reservationDTO.getMovieTitle())
+                .orElseThrow(MovieNotFoundException::new);
 
         LocalDateTime screeningTime = LocalDateTime.parse(reservationDTO.getMovieDate());
         Screening screening = screeningRepository.findScreeningByMovieTitleAndScreeningTime(
                 reservationDTO.getMovieTitle(),
-                screeningTime);
+                screeningTime)
+                .orElseThrow(ScreeningNotFoundException::new);
 
         Ticket ticket = Ticket.builder()
                 .userEmail(user.getEmail())

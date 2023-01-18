@@ -64,11 +64,6 @@ public class AdminController {
         return adminService.deleteMovie(title);
     }
 
-    @PutMapping("/update/movie")
-    public ResponseEntity<?> updateMovie() {
-        return adminService.updateMovie();
-    }
-
     @DeleteMapping("/delete/user")
     public ResponseEntity<?> deleteUser(@RequestParam String userEmail) {
         return adminService.deleteUser(userEmail);
@@ -77,10 +72,5 @@ public class AdminController {
     @PutMapping("/update/user/role")
     public ResponseEntity<?> updateUsersRole(@RequestParam String userEmail, @RequestParam Role role) {
         return adminService.updateUsersRole(userEmail, role);
-    }
-
-    @DeleteMapping("/delete/ticket")
-    public ResponseEntity<?> deleteTicket() {
-        return adminService.deleteTicket();
     }
 }
