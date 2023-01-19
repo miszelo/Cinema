@@ -1,5 +1,6 @@
 # Cinema
 Projekt zaliczeniowy na przedmioty: Programowanie - JAVA, Bazy danych NoSQL i Big Data
+Program umożliwia użytkownikowi rezerwacje biletów na interesujący go seans.
 ### Technologie użyte w projekcie
 1. Spring Boot
 2. Spring Boot Security
