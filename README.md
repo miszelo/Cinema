@@ -1,5 +1,13 @@
 # Cinema
 Projekt zaliczeniowy na przedmioty: Programowanie - JAVA, Bazy danych NoSQL i Big Data
+### Technologie użyte w projekcie
+1. Spring Boot
+2. Spring Boot Security
+3. Spring Web
+4. Project Lombok
+5. Spring Data MongoDB
+6. Freemarker
+
 ### Registration "/register"
 ![image](https://user-images.githubusercontent.com/56031072/213288680-88dabf4c-d775-4f69-bc31-2d31703081d6.png)
 
