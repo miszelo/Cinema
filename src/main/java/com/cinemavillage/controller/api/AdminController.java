@@ -1,7 +1,6 @@
 package com.cinemavillage.controller.api;
 
 import com.cinemavillage.controller.api.mapper.MovieMapper;
-import com.cinemavillage.controller.api.mapper.ScreeningMapper;
 import com.cinemavillage.dto.ChangeScreeningTimeDTO;
 import com.cinemavillage.dto.NewMovieDTO;
 import com.cinemavillage.dto.NewScreeningDTO;
@@ -30,7 +29,6 @@ import java.util.List;
 public class AdminController {
 
     private final AdminService adminService;
-    private final ScreeningMapper screeningMapper;
     private final ScreeningRepository screeningRepository;
     private final MovieMapper movieMapper;
 
@@ -41,7 +39,7 @@ public class AdminController {
 
     @PostMapping("/add/screening")
     public ResponseEntity<Screening> addScreening(@RequestBody NewScreeningDTO newScreeningDTO) {
-        return adminService.addScreening(screeningMapper.mapScreeningDTOToScreening(newScreeningDTO));
+        return adminService.addScreening(newScreeningDTO);
     }
 
     @DeleteMapping("/delete/screening")

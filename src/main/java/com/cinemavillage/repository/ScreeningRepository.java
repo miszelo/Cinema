@@ -12,6 +12,7 @@ import java.util.Optional;
 
 /**
  * Repository to finding documents from database
+ *
  * @author Michal Kawczak, Jakub Mikos
  */
 
