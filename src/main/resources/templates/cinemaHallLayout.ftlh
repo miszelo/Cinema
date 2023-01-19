@@ -228,6 +228,9 @@
         xhr.open("PUT", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(JSON.stringify(reservationDetails));
+        xhr.onload = () => {
+            alert(xhr.responseText)
+        }
         $(".active").addClass('taken');
         $(".active").toggleClass('active');
 
