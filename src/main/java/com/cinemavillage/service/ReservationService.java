@@ -52,7 +52,13 @@ public class ReservationService {
                 .movieName(movie.getTitle())
                 .movieDate(screeningTime)
                 .seats(reservationDTO.getSeats())
-                .ticketCode((user.getEmail().hashCode() + screeningTime.toString().hashCode() + new Date().toString()).replace(" ","").replace("-","").replace(":","").replaceAll("CET2023","").toUpperCase())
+                .ticketCode((user.getEmail().hashCode()
+                        + screeningTime.toString().hashCode()
+                        + new Date().toString())
+                        .replace(" ","")
+                        .replace("-","")
+                        .replace(":","")
+                        .replaceAll("CET2023","").toUpperCase())
                 .build();
 
         if (user.getTickets() == null) {
