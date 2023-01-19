@@ -1,5 +1,6 @@
 # Cinema
 Projekt zaliczeniowy na przedmioty: Programowanie - JAVA, Bazy danych NoSQL i Big Data.
+Wykorzystana baza danych to MongoDB, postawiona jest na MongoDB Atlas
 
 Program umożliwia użytkownikowi rezerwacje biletów na interesujący go seans.
 ### Technologie użyte w projekcie
