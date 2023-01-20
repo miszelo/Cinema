@@ -10,6 +10,7 @@ Program umożliwia użytkownikowi rezerwacje biletów na interesujący go seans.
 4. Project Lombok
 5. Spring Data MongoDB
 6. Freemarker
+7. JavaScript
 
 ### Registration "/register"
 ![image](https://user-images.githubusercontent.com/56031072/213288680-88dabf4c-d775-4f69-bc31-2d31703081d6.png)
