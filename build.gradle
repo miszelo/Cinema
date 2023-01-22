@@ -32,5 +32,3 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 }
-
-targetCompatibility = JavaVersion.VERSION_16
