@@ -1,1 +1,1 @@
-web: java -jar build/libs/cinemavillage-0.0.1-SNAPSHOT-plain.jar
+web: java -jar build/libs/cinemavillage-0.0.1-SNAPSHOT.jar
