@@ -19,7 +19,7 @@ apply plugin: 'war'
 
 group = 'com.cinema'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 17
 
 configurations {
 	compileOnly {
@@ -42,3 +42,4 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 }
 
+targetCompatibility = JavaVersion.VERSION_16
