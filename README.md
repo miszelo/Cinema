@@ -1,5 +1,5 @@
 # Cinema
-http://cinemavillage.alwaysdata.net/home/17-01-2023
+http://cinemavillage.alwaysdata.net
 
 Projekt zaliczeniowy na przedmioty: Programowanie - JAVA, Bazy danych NoSQL i Big Data.
 Wykorzystana baza danych to MongoDB, postawiona jest na MongoDB Atlas
