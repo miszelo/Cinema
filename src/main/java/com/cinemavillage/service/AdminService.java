@@ -1,6 +1,8 @@
 package com.cinemavillage.service;
 
+import com.cinemavillage.controller.api.mapper.ScreeningMapper;
 import com.cinemavillage.dto.ChangeScreeningTimeDTO;
+import com.cinemavillage.dto.NewScreeningDTO;
 import com.cinemavillage.exception.MovieNotFoundException;
 import com.cinemavillage.exception.ScreeningNotFoundException;
 import com.cinemavillage.exception.TicketsNotFoundException;
@@ -37,9 +39,20 @@ public class AdminService {
     private final UserRepository userRepository;
     private final TicketRepository ticketRepository;
 
-    public ResponseEntity<Screening> addScreening(Screening screening) {
+    private final ScreeningMapper screeningMapper;
+
+    public ResponseEntity<Screening> addScreening(NewScreeningDTO newScreeningDTO) {
+        Screening screening = screeningMapper.mapScreeningDTOToScreening(newScreeningDTO);
         if (screening.getMovie() == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        System.out.println("time " + screening.getScreeningTime());
+        System.out.println("movie title " + screening.getMovie().getTitle());
+       if (screeningRepository.findScreeningByMovieTitleAndScreeningTime(
+                screening.getMovie().getTitle(),
+                screening.getScreeningTime()
+        ).isPresent()) {
+           return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         screeningRepository.save(screening);
         return ResponseEntity.ok(screening);

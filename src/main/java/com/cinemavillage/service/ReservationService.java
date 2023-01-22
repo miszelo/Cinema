@@ -14,6 +14,7 @@ import com.cinemavillage.repository.TicketRepository;
 import com.cinemavillage.repository.UserRepository;
 import com.cinemavillage.security.config.UserDetailsImpl;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -30,7 +31,7 @@ public class ReservationService {
     private final TicketRepository ticketRepository;
     private final UserRepository userRepository;
 
-    public void reserve(UserDetailsImpl userDetails, ReservationDTO reservationDTO) {
+    public ResponseEntity<?> reserve(UserDetailsImpl userDetails, ReservationDTO reservationDTO) {
         if (userDetails == null) {
             throw new UserNotFoundException();
         }
@@ -51,7 +52,13 @@ public class ReservationService {
                 .movieName(movie.getTitle())
                 .movieDate(screeningTime)
                 .seats(reservationDTO.getSeats())
-                .ticketCode(user.getEmail().hashCode() + screeningTime.toString().hashCode() + new Date().toString())
+                .ticketCode((user.getEmail().hashCode()
+                        + screeningTime.toString().hashCode()
+                        + new Date().toString())
+                        .replace(" ","")
+                        .replace("-","")
+                        .replace(":","")
+                        .replaceAll("CET2023","").toUpperCase())
                 .build();
 
         if (user.getTickets() == null) {
@@ -70,5 +77,6 @@ public class ReservationService {
         screeningRepository.save(screening);
         ticketRepository.save(ticket);
         userRepository.save(user);
+        return ResponseEntity.ok("Dear " + user.getEmail() + "\nYour ticket code: \n" + ticket.getTicketCode());
     }
 }

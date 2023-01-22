@@ -43,7 +43,7 @@
             })
         }).then(res => {
             if (res.status === 200) {
-                alert('Success');
+                alert('Success! ' + userEmail + ' you can login now.');
                 window.location.href = '/login';
             } else {
                 alert("Ups... Something gone wrong. Please try again.")
