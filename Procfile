@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT -jar build/libs/*.jar
+web: java -jar build/libs/cinemavillage-0.0.1-SNAPSHOT-plain.jar
