@@ -1,0 +1,133 @@
+body {
+    background: rgba(0, 0, 0, 0.88);
+}
+.movieContainer {
+    display: flex;
+    border: solid #4d1326;
+    max-width: 65vw;
+    border-radius: 30px;
+    min-width: 900px;
+    background: #4d132669
+}
+.listBox {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.movieBox {
+    align-content: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    padding: 20px;
+    width: 70%;
+    flex: 1;
+}
+.noMov {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #831339;
+}
+.buttons {
+    margin: 0px 15px 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-style: italic;
+}
+.description {
+    font-size: 1rem;
+    color: #ffffffc4;
+}
+
+.topnav {
+    border: solid #4d1326;
+    overflow: hidden;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+    min-width: 600px;
+}
+.date {
+    position: absolute;
+    right: 0%;
+    margin: 0% 11px;
+}
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #e3f1ff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 19px;
+    justify-content: center;
+    align-content: center;
+}
+.topnav input {
+    float: left;
+    color: #000000;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #4d1326;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #5d011d;
+    color: white;
+}
+.movieList {
+    padding-left: 3vw;
+    justify-content: center;
+    align-content: center;
+}
+.outTopNav {
+    display: flex;
+}
+
+.pickBtn {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: #5d011da3;
+    border: 2px solid #000000;
+    border-radius: 0.6em;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    line-height: 1;
+    margin: 10px;
+    padding: 0.8em 1.6em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 700;
+}
+.pickBtn:hover, .pickBtn:focus {
+    color: #000000;
+    outline: 0;
+}
+.effect {
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.effect:hover {
+    box-shadow: 0 0 40px 40px #4d1326 inset;
+}
+#pickMovie {
+
+}
