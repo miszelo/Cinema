@@ -1,8 +1,8 @@
 # Cinema
-http://cinemavillage.alwaysdata.net
+http://cinemavillage.alwaysdata.net - deployed app
 
 Projekt zaliczeniowy na przedmioty: Programowanie - JAVA, Bazy danych NoSQL i Big Data.
-Wykorzystana baza danych to MongoDB, postawiona jest na MongoDB Atlas
+Wykorzystana baza danych to MongoDB, postawiona jest na MongoDB Atlas.
 
 Program umożliwia użytkownikowi rezerwacje biletów na interesujący go seans.
 ### Technologie użyte w projekcie
